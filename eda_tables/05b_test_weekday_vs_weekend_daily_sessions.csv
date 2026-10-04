@@ -1,0 +1,9 @@
+,value
+n_weekday,156.0
+n_weekend,62.0
+median_weekday,78.0
+median_weekend,42.5
+mean_weekday,74.89102564102564
+mean_weekend,41.87096774193548
+p_value,1.7535053649244812e-23
+effect_size_rb,0.8674524400330852

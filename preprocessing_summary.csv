@@ -1,0 +1,14 @@
+step,kind,rows_remaining,rows_affected
+loaded,-,14400,0
+outside contiguous coverage,ACTIVE,14300,100
+duplicate _id,guard,14300,0
+duplicate sessionID,guard,14300,0
+duplicate station+connectionTime,guard,14300,0
+unparseable connect/disconnect time,guard,14300,0
+disconnect not after connect,guard,14300,0
+doneChargingTime outside plug-in window -> NaT (rows kept),fix,14300,18
+kWhDelivered missing/non-numeric,guard,14300,0
+kWhDelivered < 0.1,guard,14300,0
+kWhDelivered > 100.0,guard,14300,0
+connected < 1.0 min,guard,14300,0
+connected > 72.0 h,ACTIVE,14279,21
