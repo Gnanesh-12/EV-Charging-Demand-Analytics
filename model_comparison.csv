@@ -1,0 +1,10 @@
+Model,Family,CV_MAE,MAE,RMSE,R2,MAPE,Best_Params
+Gradient Boosting Regressor,Boosting,11.587,17.981,22.734,0.217,83.94,"{'learning_rate': 0.1, 'max_depth': 2, 'n_estimators': 40, 'subsample': 0.7}"
+ElasticNet Regression,Linear,7.784,18.584,23.025,0.196,89.3,"{'model__alpha': 0.5, 'model__l1_ratio': 0.2}"
+Ridge Regression,Linear,7.799,19.251,23.707,0.148,90.45,{'model__alpha': 20.0}
+Lasso Regression,Linear,7.941,20.029,24.72,0.074,94.59,{'model__alpha': 0.5}
+Random Forest Regressor,Tree Ensemble,9.376,20.208,24.634,0.08,103.97,"{'max_depth': 3, 'max_features': 'sqrt', 'min_samples_split': 4, 'n_estimators': 100}"
+Hist Gradient Boosting,Boosting,8.523,22.117,26.257,-0.045,108.95,"{'learning_rate': 0.1, 'max_iter': 60, 'max_leaf_nodes': 15, 'min_samples_leaf': 10}"
+Support Vector Regressor,Kernel,11.443,23.278,28.521,-0.233,123.16,"{'model__C': 25.0, 'model__epsilon': 2.0, 'model__kernel': 'rbf'}"
+Baseline: DOW Mean,Baseline,,24.16054700854701,29.049533623806834,-0.2789952836983436,121.59672304468738,Historical weekday mean
+Baseline: Global Mean,Baseline,,27.312734082397007,32.23570189699072,-0.5749431290374225,136.94173624935456,Unconditional train mean
