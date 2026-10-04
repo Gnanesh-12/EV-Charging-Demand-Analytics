@@ -1,0 +1,8 @@
+,value
+stations,54.0
+largest simultaneous count,51.0
+peak occupancy (largest count / stations),0.9444444444444444
+weekday 15-min slots with >= 90% of stations occupied,40.0
+weekday days with at least one such slot,5.0
+share of weekdays with at least one such slot,0.03164556962025317
+weekday mean occupancy 10:00-15:00,0.7086046237320123

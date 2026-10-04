@@ -1,0 +1,8 @@
+,value
+kWh upper Tukey fence,26.957500000000003
+sessions above fence,360.0
+share above fence,0.02521184956929757
+sessions plugged in > 24 h,128.0
+sessions plugged in < 15 min,276.0
+arrivals between 00:00 and 05:00,332.0
+sessions with unreliable done-time (flagged earlier),48.0
