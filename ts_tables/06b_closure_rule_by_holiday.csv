@@ -1,0 +1,14 @@
+holiday,median,min,max,count,campus_closure
+Christmas Day,0.0,0.0,0.1,3,True
+New Year's Day,0.17,0.14,1.0,3,True
+Thanksgiving Day,0.17,0.03,1.0,3,True
+Day after Thanksgiving,0.18,0.13,0.38,3,True
+Memorial Day,0.3,0.28,0.5,3,True
+Independence Day,0.31,0.16,0.45,3,True
+Labor Day,0.38,0.35,0.4,3,True
+Winter break (24-31 Dec),0.4,0.03,2.0,21,True
+Washington's Birthday,0.52,0.36,1.23,3,True
+"Birthday of Martin Luther King, Jr.",0.56,0.31,1.0,3,True
+Columbus Day,0.97,0.96,0.99,2,False
+Veterans Day,0.99,0.84,1.13,2,False
+Juneteenth National Independence Day,1.15,1.15,1.15,1,False
