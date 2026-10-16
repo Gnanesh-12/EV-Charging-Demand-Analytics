@@ -1,0 +1,43 @@
+column,role,description
+date,meta,Calendar day (local time)
+session_count,target,Sessions starting on the day (primary target); NaN on recording-gap days
+total_kWh,target,Energy delivered by sessions starting on the day (secondary target)
+same_day_avg_kWh,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+same_day_median_kWh,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+same_day_avg_connected_h,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+same_day_avg_charging_h,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+same_day_avg_idle_h,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+same_day_avg_power_kW,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+same_day_n_stations,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+same_day_n_unique_users,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+same_day_claimed_share,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+same_day_long_stay_share,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+same_day_morning_arrival_share,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+same_day_default_spike_share,same_day_outcome,"Aggregate of the day being predicted - analysis only, never a predictor"
+in_collection_gap,meta,1 if the day lies in a recording gap (target unknown)
+dayofweek,predictor,"Day of week, 0 = Monday"
+is_weekend,predictor,1 on Saturday/Sunday
+dow_1,predictor,1 if weekday = 1 (Monday is the reference)
+dow_2,predictor,1 if weekday = 2 (Monday is the reference)
+dow_3,predictor,1 if weekday = 3 (Monday is the reference)
+dow_4,predictor,1 if weekday = 4 (Monday is the reference)
+dow_5,predictor,1 if weekday = 5 (Monday is the reference)
+dow_6,predictor,1 if weekday = 6 (Monday is the reference)
+is_federal_holiday,calendar_info,1 on any US federal holiday (reference only; several do not close campuses)
+is_holiday_bridge,calendar_info,1 on the day after Thanksgiving (included in is_major_holiday)
+is_major_holiday,predictor,"1 on a major holiday (New Year, Memorial Day, 4 July, Juneteenth, Labor Day, Thanksgiving + next day, Christmas) - assumed closure"
+holiday_name,meta,"Name of the federal holiday or bridge day, empty otherwise"
+regime,meta,R1 free / R2 free with 14 kWh default / R3 paid / R4 COVID period
+is_r2_policy,predictor,1 from 1 Sep 2018 (14 kWh default for unclaimed sessions)
+is_paid,predictor,1 from 1 Nov 2018 (paid charging)
+is_covid,predictor,"1 from the COVID start (campus in remote operation, then recovery)"
+month,calendar_info,Month - not a predictor: seasonality cannot be separated from regime changes
+day_of_month,calendar_info,Day of month - not a predictor
+week_of_year,calendar_info,ISO week - not a predictor
+lag_1,predictor,Sessions on the previous calendar day
+lag_7,predictor,Sessions 7 calendar days earlier (same weekday)
+lag_14,predictor,Sessions 14 calendar days earlier
+rolling_7_mean,predictor,Mean sessions over the previous 7 days (needs >= 5 days with data)
+rolling_14_mean,predictor,Mean sessions over the previous 14 days (needs >= 10 days with data)
+rolling_7_std,predictor,Std of sessions over the previous 7 days
+same_dow_mean_4w,predictor,Mean sessions on the same weekday in the previous 4 weeks (needs >= 2)

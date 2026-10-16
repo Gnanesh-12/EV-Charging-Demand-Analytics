@@ -1,8 +1,15 @@
 check,passed
 session_row_count_matches_input,True
 session_ids_unique,True
+daily_calendar_contiguous,True
 daily_dates_unique,True
+daily_counts_sum_to_sessions,True
+lag_1_is_previous_calendar_day,True
+lag_7_is_seven_calendar_days_earlier,True
+rolling_7_mean_uses_previous_7_days_only,True
+no_target_on_recording_gap_days,True
+no_lag_taken_from_a_gap_day,True
+predictors_are_all_known_before_the_day,True
+regime_flags_match_dates,True
 no_negative_idle_duration,True
 charging_ratio_between_zero_and_one,True
-daily_session_count_positive,True
-lag_features_use_prior_days_only,True

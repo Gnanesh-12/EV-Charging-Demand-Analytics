@@ -1,0 +1,177 @@
+{
+  "target": "session_count",
+  "all_predictors": [
+    "dayofweek",
+    "is_weekend",
+    "dow_1",
+    "dow_2",
+    "dow_3",
+    "dow_4",
+    "dow_5",
+    "dow_6",
+    "is_major_holiday",
+    "is_r2_policy",
+    "is_paid",
+    "is_covid",
+    "lag_1",
+    "lag_7",
+    "lag_14",
+    "rolling_7_mean",
+    "rolling_14_mean",
+    "rolling_7_std",
+    "same_dow_mean_4w"
+  ],
+  "windows": {
+    "W1": {
+      "start": "2018-10-01",
+      "end": "2018-10-31",
+      "kind": "main",
+      "label": "Oct 2018, free (R2)",
+      "predictors": [
+        "dayofweek",
+        "is_weekend",
+        "dow_1",
+        "dow_2",
+        "dow_3",
+        "dow_4",
+        "dow_5",
+        "dow_6",
+        "is_major_holiday",
+        "is_r2_policy",
+        "lag_1",
+        "lag_7",
+        "lag_14",
+        "rolling_7_mean",
+        "rolling_14_mean",
+        "rolling_7_std",
+        "same_dow_mean_4w"
+      ],
+      "constant_in_train": [
+        "is_paid",
+        "is_covid"
+      ]
+    },
+    "W2": {
+      "start": "2019-12-01",
+      "end": "2020-02-29",
+      "kind": "main",
+      "label": "Dec 2019 - Feb 2020, paid (R3)",
+      "predictors": [
+        "dayofweek",
+        "is_weekend",
+        "dow_1",
+        "dow_2",
+        "dow_3",
+        "dow_4",
+        "dow_5",
+        "dow_6",
+        "is_major_holiday",
+        "is_r2_policy",
+        "is_paid",
+        "lag_1",
+        "lag_7",
+        "lag_14",
+        "rolling_7_mean",
+        "rolling_14_mean",
+        "rolling_7_std",
+        "same_dow_mean_4w"
+      ],
+      "constant_in_train": [
+        "is_covid"
+      ]
+    },
+    "W3": {
+      "start": "2021-06-01",
+      "end": "2021-09-13",
+      "kind": "main",
+      "label": "Jun 2021 - end, recovery (R4)",
+      "predictors": [
+        "dayofweek",
+        "is_weekend",
+        "dow_1",
+        "dow_2",
+        "dow_3",
+        "dow_4",
+        "dow_5",
+        "dow_6",
+        "is_major_holiday",
+        "is_r2_policy",
+        "is_paid",
+        "is_covid",
+        "lag_1",
+        "lag_7",
+        "lag_14",
+        "rolling_7_mean",
+        "rolling_14_mean",
+        "rolling_7_std",
+        "same_dow_mean_4w"
+      ],
+      "constant_in_train": []
+    },
+    "S1": {
+      "start": "2018-11-01",
+      "end": "2018-11-30",
+      "kind": "stress",
+      "label": "Nov 2018, first paid month",
+      "predictors": [
+        "dayofweek",
+        "is_weekend",
+        "dow_1",
+        "dow_2",
+        "dow_3",
+        "dow_4",
+        "dow_5",
+        "dow_6",
+        "is_major_holiday",
+        "is_r2_policy",
+        "lag_1",
+        "lag_7",
+        "lag_14",
+        "rolling_7_mean",
+        "rolling_14_mean",
+        "rolling_7_std",
+        "same_dow_mean_4w"
+      ],
+      "constant_in_train": [
+        "is_paid",
+        "is_covid"
+      ]
+    },
+    "S2": {
+      "start": "2020-03-16",
+      "end": "2020-04-30",
+      "kind": "stress",
+      "label": "16 Mar - 30 Apr 2020, first COVID weeks",
+      "predictors": [
+        "dayofweek",
+        "is_weekend",
+        "dow_1",
+        "dow_2",
+        "dow_3",
+        "dow_4",
+        "dow_5",
+        "dow_6",
+        "is_major_holiday",
+        "is_r2_policy",
+        "is_paid",
+        "lag_1",
+        "lag_7",
+        "lag_14",
+        "rolling_7_mean",
+        "rolling_14_mean",
+        "rolling_7_std",
+        "same_dow_mean_4w"
+      ],
+      "constant_in_train": [
+        "is_covid"
+      ]
+    }
+  },
+  "best_adaptive_baseline": {
+    "W1": "seasonal_naive_lag7",
+    "W2": "same_dow_mean_4w",
+    "W3": "same_dow_mean_4w",
+    "S1": "seasonal_naive_lag7",
+    "S2": "seasonal_naive_lag7"
+  }
+}

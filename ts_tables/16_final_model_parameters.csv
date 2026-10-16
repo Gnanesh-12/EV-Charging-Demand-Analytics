@@ -1,7 +1,7 @@
 ,estimate,p_value
-intercept,0.0377,0.2438
+intercept,0.0377,0.2439
 campus_closure,-3.0974,0.0002
 ar.L1,0.9071,0.0
 ma.L1,-0.7638,0.0
 ma.S.L7,-0.7632,0.0
-sigma2,10.8665,0.0
+sigma2,10.8672,0.0

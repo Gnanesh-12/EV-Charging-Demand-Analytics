@@ -1,4 +1,4 @@
 ,spearman_rho,p_value
-kWh vs hours plugged in,0.41953691291171963,0.0
-kWh vs hours charging,0.7319242831353276,0.0
-arrival hour vs hours plugged in,-0.3693796982685006,0.0
+kWh vs hours plugged in,0.3715310812579325,0.0
+kWh vs hours charging,0.6940776589684725,0.0
+arrival hour vs hours plugged in,-0.3952427231007508,0.0

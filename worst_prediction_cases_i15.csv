@@ -1,11 +1,11 @@
 date,actual,pred_gb,residual,abs_error,day_name,dayofweek,event_context
-2018-11-22,9,71.34,-62.34,62.34,Thursday,3,Thanksgiving Day (Campus Closed)
-2018-11-23,7,57.18,-50.18,50.18,Friday,4,Mid-Winter Recess / Campus Event
-2018-11-28,33,73.31,-40.31,40.31,Wednesday,2,Post-Thanksgiving Week Lag Shift
-2018-11-07,46,83.46,-37.459999999999994,37.459999999999994,Wednesday,2,Mid-Semester Wednesday Shift
-2018-11-17,16,51.31,-35.31,35.31,Saturday,5,End of January Recess Shift
-2018-11-11,16,51.18,-35.18,35.18,Sunday,6,Pre-Thanksgiving Weekend Lull
-2018-11-02,51,82.31,-31.310000000000002,31.310000000000002,Friday,4,Pre-Election Day Friday Variance
-2018-11-21,42,72.59,-30.590000000000003,30.590000000000003,Wednesday,2,Day after Thanksgiving (Black Friday)
-2018-11-03,23,51.01,-28.009999999999998,28.009999999999998,Saturday,5,Veterans Day Observed / Autumn Shift
-2018-11-06,60,83.69,-23.689999999999998,23.689999999999998,Tuesday,1,Pre-Winter Break Friday
+2021-09-06,9,24.45,-15.45,15.45,Monday,0,Thanksgiving Day (Campus Closed)
+2021-09-09,34,18.73,15.27,15.27,Thursday,3,Mid-Winter Recess / Campus Event
+2021-09-07,28,16.19,11.809999999999999,11.809999999999999,Tuesday,1,Post-Thanksgiving Week Lag Shift
+2021-09-10,41,29.39,11.61,11.61,Friday,4,Mid-Semester Wednesday Shift
+2021-09-01,29,17.4,11.600000000000001,11.600000000000001,Wednesday,2,End of January Recess Shift
+2021-06-19,17,6.26,10.74,10.74,Saturday,5,Pre-Thanksgiving Weekend Lull
+2021-08-04,28,17.67,10.329999999999998,10.329999999999998,Wednesday,2,Pre-Election Day Friday Variance
+2021-08-27,28,17.74,10.260000000000002,10.260000000000002,Friday,4,Day after Thanksgiving (Black Friday)
+2021-07-22,23,12.98,10.02,10.02,Thursday,3,Veterans Day Observed / Autumn Shift
+2021-07-03,16,6.3,9.7,9.7,Saturday,5,Pre-Winter Break Friday

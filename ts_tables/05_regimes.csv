@@ -1,6 +1,6 @@
 regime,label,start,end,basis
 free,Free charging,2018-04-25,2018-10-31,documented: paid charging from 1 Nov 2018
 paid,"Paid charging, pre-COVID",2018-11-01,2020-03-15,documented price change; break detected at the COVID shutdown
-covid,COVID-19 shutdown,2020-03-16,2020-08-03,detected break
+covid,COVID-19 shutdown,2020-03-16,2020-08-03,COVID start used in Issues #10-#15 (checked against the data in Issue #10)
 nodata,No records,2020-08-04,2020-11-17,zero run in §1.4
 recovery,Post-COVID recovery,2020-11-18,2021-09-13,demand resumes after the gap

@@ -1,0 +1,5 @@
+event,date,nearest_detected_break,days_apart,detected_within_4_weeks
+14 kWh default (start of R2),2018-09-01,2018-11-19,79,False
+paid charging (start of R3),2018-11-01,2018-11-19,18,True
+COVID period (start of R4),2020-03-16,2020-03-16,0,True
+records resume,2020-11-18,2020-11-23,5,True

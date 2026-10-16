@@ -1,0 +1,147 @@
+{
+  "model": "GradientBoosting",
+  "selected_by": "lowest mean TimeSeriesSplit WAPE over main windows W1, W2, W3",
+  "cv_WAPE_mean_main": 0.26402181411207426,
+  "params_per_window": {
+    "W1": {
+      "learning_rate": 0.05,
+      "max_depth": 3,
+      "n_estimators": 150,
+      "subsample": 0.8
+    },
+    "W2": {
+      "learning_rate": 0.05,
+      "max_depth": 2,
+      "n_estimators": 150,
+      "subsample": 0.8
+    },
+    "W3": {
+      "learning_rate": 0.05,
+      "max_depth": 2,
+      "n_estimators": 300,
+      "subsample": 0.8
+    },
+    "S1": {
+      "learning_rate": 0.05,
+      "max_depth": 3,
+      "n_estimators": 150,
+      "subsample": 0.8
+    },
+    "S2": {
+      "learning_rate": 0.05,
+      "max_depth": 2,
+      "n_estimators": 300,
+      "subsample": 0.8
+    }
+  },
+  "predictors_per_window": {
+    "W1": [
+      "dayofweek",
+      "is_weekend",
+      "dow_1",
+      "dow_2",
+      "dow_3",
+      "dow_4",
+      "dow_5",
+      "dow_6",
+      "is_major_holiday",
+      "is_r2_policy",
+      "lag_1",
+      "lag_7",
+      "lag_14",
+      "rolling_7_mean",
+      "rolling_14_mean",
+      "rolling_7_std",
+      "same_dow_mean_4w"
+    ],
+    "W2": [
+      "dayofweek",
+      "is_weekend",
+      "dow_1",
+      "dow_2",
+      "dow_3",
+      "dow_4",
+      "dow_5",
+      "dow_6",
+      "is_major_holiday",
+      "is_r2_policy",
+      "is_paid",
+      "lag_1",
+      "lag_7",
+      "lag_14",
+      "rolling_7_mean",
+      "rolling_14_mean",
+      "rolling_7_std",
+      "same_dow_mean_4w"
+    ],
+    "W3": [
+      "dayofweek",
+      "is_weekend",
+      "dow_1",
+      "dow_2",
+      "dow_3",
+      "dow_4",
+      "dow_5",
+      "dow_6",
+      "is_major_holiday",
+      "is_r2_policy",
+      "is_paid",
+      "is_covid",
+      "lag_1",
+      "lag_7",
+      "lag_14",
+      "rolling_7_mean",
+      "rolling_14_mean",
+      "rolling_7_std",
+      "same_dow_mean_4w"
+    ],
+    "S1": [
+      "dayofweek",
+      "is_weekend",
+      "dow_1",
+      "dow_2",
+      "dow_3",
+      "dow_4",
+      "dow_5",
+      "dow_6",
+      "is_major_holiday",
+      "is_r2_policy",
+      "lag_1",
+      "lag_7",
+      "lag_14",
+      "rolling_7_mean",
+      "rolling_14_mean",
+      "rolling_7_std",
+      "same_dow_mean_4w"
+    ],
+    "S2": [
+      "dayofweek",
+      "is_weekend",
+      "dow_1",
+      "dow_2",
+      "dow_3",
+      "dow_4",
+      "dow_5",
+      "dow_6",
+      "is_major_holiday",
+      "is_r2_policy",
+      "is_paid",
+      "lag_1",
+      "lag_7",
+      "lag_14",
+      "rolling_7_mean",
+      "rolling_14_mean",
+      "rolling_7_std",
+      "same_dow_mean_4w"
+    ]
+  },
+  "model_files": {
+    "W1": "models/W1_GradientBoosting.joblib",
+    "W2": "models/W2_GradientBoosting.joblib",
+    "W3": "models/W3_GradientBoosting.joblib",
+    "S1": "models/S1_GradientBoosting.joblib",
+    "S2": "models/S2_GradientBoosting.joblib"
+  },
+  "runner_up": "ElasticNet",
+  "cv_WAPE_runner_up": 0.3683517216374992
+}

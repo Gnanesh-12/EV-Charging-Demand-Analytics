@@ -1,0 +1,14 @@
+holiday,in_issue12_list,closure_in_data,median_ratio,agree
+"Birthday of Martin Luther King, Jr.",False,True,0.56,False
+Christmas Day,True,True,0.0,True
+Columbus Day,False,False,0.97,True
+Day after Thanksgiving,True,True,0.18,True
+Independence Day,True,True,0.31,True
+Juneteenth National Independence Day,True,False,1.15,False
+Labor Day,True,True,0.38,True
+Memorial Day,True,True,0.3,True
+New Year's Day,True,True,0.17,True
+Thanksgiving Day,True,True,0.17,True
+Veterans Day,False,False,0.99,True
+Washington's Birthday,False,True,0.52,False
+Winter break (24-31 Dec),False,True,0.4,False
