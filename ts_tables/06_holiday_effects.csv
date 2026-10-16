@@ -1,0 +1,54 @@
+date,holiday,regime,sessions,same_weekday_median,ratio
+2018-05-28,Memorial Day,free,20,66.0,0.303
+2018-07-04,Independence Day,free,24,77.0,0.312
+2018-09-03,Labor Day,free,34,90.5,0.376
+2018-10-08,Columbus Day,free,87,91.0,0.956
+2018-11-12,Veterans Day,paid,54,64.0,0.844
+2018-11-22,Thanksgiving Day,paid,9,54.0,0.167
+2018-11-23,Day after Thanksgiving,paid,7,52.5,0.133
+2018-12-24,Winter break (24-31 Dec),paid,3,46.0,0.065
+2018-12-25,Christmas Day,paid,5,49.0,0.102
+2018-12-26,Winter break (24-31 Dec),paid,6,43.0,0.14
+2018-12-27,Winter break (24-31 Dec),paid,5,42.0,0.119
+2018-12-28,Winter break (24-31 Dec),paid,11,40.0,0.275
+2018-12-29,Winter break (24-31 Dec),paid,8,14.5,0.552
+2018-12-30,Winter break (24-31 Dec),paid,10,15.5,0.645
+2018-12-31,Winter break (24-31 Dec),paid,9,42.0,0.214
+2019-01-01,New Year's Day,paid,8,48.0,0.167
+2019-01-21,"Birthday of Martin Luther King, Jr.",paid,19,34.0,0.559
+2019-02-18,Washington's Birthday,paid,19,36.5,0.521
+2019-05-27,Memorial Day,paid,11,39.0,0.282
+2019-07-04,Independence Day,paid,6,38.5,0.156
+2019-09-02,Labor Day,paid,13,37.5,0.347
+2019-10-14,Columbus Day,paid,34,34.5,0.986
+2019-11-11,Veterans Day,paid,40,35.5,1.127
+2019-11-28,Thanksgiving Day,paid,1,36.5,0.027
+2019-11-29,Day after Thanksgiving,paid,6,34.0,0.176
+2019-12-24,Winter break (24-31 Dec),paid,9,38.0,0.237
+2019-12-25,Christmas Day,paid,0,41.0,0.0
+2019-12-26,Winter break (24-31 Dec),paid,1,36.5,0.027
+2019-12-27,Winter break (24-31 Dec),paid,8,33.0,0.242
+2019-12-28,Winter break (24-31 Dec),paid,5,7.5,0.667
+2019-12-29,Winter break (24-31 Dec),paid,6,7.5,0.8
+2019-12-30,Winter break (24-31 Dec),paid,10,31.0,0.323
+2019-12-31,Winter break (24-31 Dec),paid,7,41.0,0.171
+2020-01-01,New Year's Day,paid,5,37.0,0.135
+2020-01-20,"Birthday of Martin Luther King, Jr.",paid,11,35.0,0.314
+2020-02-17,Washington's Birthday,paid,13,36.0,0.361
+2020-11-26,Thanksgiving Day,recovery,3,3.0,1.0
+2020-11-27,Day after Thanksgiving,recovery,3,8.0,0.375
+2020-12-24,Winter break (24-31 Dec),recovery,2,5.0,0.4
+2020-12-25,Christmas Day,recovery,0,7.0,0.0
+2020-12-26,Winter break (24-31 Dec),recovery,7,7.5,0.933
+2020-12-27,Winter break (24-31 Dec),recovery,5,4.5,1.111
+2020-12-28,Winter break (24-31 Dec),recovery,9,8.0,1.125
+2020-12-29,Winter break (24-31 Dec),recovery,10,7.0,1.429
+2020-12-30,Winter break (24-31 Dec),recovery,4,6.0,0.667
+2020-12-31,Winter break (24-31 Dec),recovery,10,5.0,2.0
+2021-01-01,New Year's Day,recovery,7,7.0,1.0
+2021-01-18,"Birthday of Martin Luther King, Jr.",recovery,6,6.0,1.0
+2021-02-15,Washington's Birthday,recovery,8,6.5,1.231
+2021-05-31,Memorial Day,recovery,7,14.0,0.5
+2021-06-18,Juneteenth National Independence Day,recovery,15,13.0,1.154
+2021-07-05,Independence Day,recovery,7,15.5,0.452
+2021-09-06,Labor Day,recovery,9,22.5,0.4

@@ -1,0 +1,3 @@
+regime,model,train_days,test_days,MAE,RMSE,WAPE,bias,coverage_80,coverage_95
+paid,SARIMAX + closures,438,56,5.719,6.821,0.194,4.042,0.857,0.964
+recovery,SARIMAX + closures + drift,271,28,3.925,5.796,0.191,1.092,0.607,0.786

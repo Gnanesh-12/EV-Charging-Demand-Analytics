@@ -1,0 +1,4 @@
+regime,stations_used,weekday_peak_median,weekday_peak_p95,weekday_peak_max,median_peak_utilisation,share_weekdays_peak_ge_80pct,busiest_weekday,busiest_hour
+free,54,43.0,48.0,51.0,0.796,0.459,Tue,8
+paid,54,27.0,37.0,42.0,0.5,0.0,Tue,8
+recovery,45,5.0,12.0,19.0,0.111,0.0,Fri,8

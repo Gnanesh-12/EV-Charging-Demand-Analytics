@@ -1,0 +1,9 @@
+rule,kind,rows_flagged
+duplicate _id,guard,0
+duplicate sessionID,guard,0
+duplicate station+connectionTime,guard,0
+unparseable connect/disconnect time,guard,0
+disconnect not after connect,guard,0
+"kWhDelivered outside [0.1, 100.0]",guard,0
+connected < 1 min,guard,0
+connected > 72 h,ACTIVE,37
