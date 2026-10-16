@@ -1,0 +1,13 @@
+regime,model,MAE,RMSE,WAPE,bias_actual_minus_forecast,MAE_closure_days,MAE_other_days,coverage_80,forecasts
+paid,Seasonal naive,7.9732,12.2789,0.302,-1.1696,25.3462,6.5161,,336
+paid,8-week weekday mean,6.8207,10.3111,0.2583,-0.1994,24.4087,5.3456,,336
+paid,"Holt-Winters (damped, log)",7.6691,10.6307,0.2905,0.8068,20.8104,6.5669,,336
+paid,SARIMA (weekly),6.208,9.737,0.2351,-2.0181,25.1291,4.621,0.8869,336
+paid,SARIMAX + closures,4.4472,6.1028,0.1684,0.3209,3.9877,4.4858,0.875,336
+paid,SARIMAX + closures + drift,4.9357,6.577,0.1869,2.319,4.0972,5.006,0.8065,336
+recovery,Seasonal naive,3.8103,4.8635,0.2467,1.4799,6.7778,3.7494,,448
+recovery,8-week weekday mean,3.8633,4.9287,0.2501,3.0592,4.0694,3.8591,,448
+recovery,"Holt-Winters (damped, log)",3.5466,4.502,0.2296,1.8516,7.4614,3.4663,,448
+recovery,SARIMA (weekly),3.4692,4.4422,0.2246,1.7415,6.3821,3.4095,0.6429,448
+recovery,SARIMAX + closures,3.4494,4.4179,0.2233,1.8173,5.3252,3.4109,0.6384,448
+recovery,SARIMAX + closures + drift,3.178,4.0774,0.2058,1.4939,5.2729,3.135,0.6473,448
