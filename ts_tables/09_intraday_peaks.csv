@@ -1,0 +1,7 @@
+regime,day_type,peak_arrival_hour,share_arrivals_06_10,share_arrivals_17_24,peak_plugged_in_time,mean_plugged_in_at_peak,busy_window_(>=90%_of_peak)
+free,weekday,8,0.469,0.255,11:00,40.647,10:00-16:15
+free,weekend,16,0.179,0.276,14:30,12.815,11:15-17:45
+paid,weekday,8,0.487,0.115,14:00,25.672,11:15-16:15
+paid,weekend,10,0.19,0.212,11:30,3.736,10:30-16:45
+recovery,weekday,8,0.294,0.217,14:45,4.305,14:15-16:45
+recovery,weekend,12,0.142,0.276,17:45,1.548,14:30-18:15

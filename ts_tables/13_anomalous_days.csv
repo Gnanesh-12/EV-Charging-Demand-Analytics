@@ -1,0 +1,49 @@
+date,weekday,regime,sessions,expected,robust_z,holiday,likely_cause
+2018-09-03,Mon,free,34,90.5,-16.31,Labor Day,campus closure
+2018-11-23,Fri,paid,7,53.9,-14.77,Day after Thanksgiving,campus closure
+2018-07-04,Wed,free,24,74.1,-14.45,Independence Day,campus closure
+2018-11-22,Thu,paid,9,54.7,-14.36,Thanksgiving Day,campus closure
+2018-05-28,Mon,free,20,65.7,-13.17,Memorial Day,campus closure
+2018-12-25,Tue,paid,5,45.5,-12.74,Christmas Day,campus closure
+2019-01-01,Tue,paid,8,43.5,-11.14,New Year's Day,campus closure
+2018-12-24,Mon,paid,3,38.1,-11.03,Winter break (24-31 Dec),campus closure
+2019-11-28,Thu,paid,1,35.1,-10.71,Thanksgiving Day,campus closure
+2018-12-26,Wed,paid,6,39.6,-10.54,Winter break (24-31 Dec),campus closure
+2018-12-27,Thu,paid,5,37.9,-10.32,Winter break (24-31 Dec),campus closure
+2019-12-25,Wed,paid,0,32.2,-10.11,Christmas Day,campus closure
+2019-05-27,Mon,paid,11,41.2,-9.46,Memorial Day,campus closure
+2021-09-06,Mon,recovery,9,26.5,-9.46,Labor Day,campus closure
+2020-03-13,Fri,paid,11,40.8,-9.36,,unexplained
+2019-12-31,Tue,paid,7,36.4,-9.21,Winter break (24-31 Dec),campus closure
+2018-12-31,Mon,paid,9,38.0,-9.1,Winter break (24-31 Dec),campus closure
+2019-11-29,Fri,paid,6,34.4,-8.9,Day after Thanksgiving,campus closure
+2019-07-04,Thu,paid,6,32.5,-8.32,Independence Day,campus closure
+2019-12-24,Tue,paid,9,35.6,-8.32,Winter break (24-31 Dec),campus closure
+2019-11-27,Wed,paid,14,38.6,-7.7,,next to a closure
+2019-09-02,Mon,paid,13,37.1,-7.56,Labor Day,campus closure
+2018-12-28,Fri,paid,11,34.1,-7.23,Winter break (24-31 Dec),campus closure
+2019-07-05,Fri,paid,11,34.0,-7.21,,next to a closure
+2020-01-01,Wed,paid,5,27.9,-7.16,New Year's Day,campus closure
+2019-10-31,Thu,paid,22,43.7,-6.78,,unexplained
+2019-12-26,Thu,paid,1,22.3,-6.68,Winter break (24-31 Dec),campus closure
+2021-09-02,Thu,recovery,17,29.2,-6.6,,unexplained
+2020-02-17,Mon,paid,13,34.0,-6.56,Washington's Birthday,campus closure
+2020-01-20,Mon,paid,11,31.8,-6.5,"Birthday of Martin Luther King, Jr.",campus closure
+2021-09-03,Fri,recovery,23,35.0,-6.47,,unexplained
+2019-12-23,Mon,paid,11,31.3,-6.36,,next to a closure
+2019-12-30,Mon,paid,10,29.8,-6.2,Winter break (24-31 Dec),campus closure
+2018-08-11,Sat,free,38,59.3,-6.13,,unexplained
+2019-01-21,Mon,paid,19,38.2,-6.0,"Birthday of Martin Luther King, Jr.",campus closure
+2019-12-27,Fri,paid,8,26.4,-5.75,Winter break (24-31 Dec),campus closure
+2021-05-31,Mon,recovery,7,16.3,-5.0,Memorial Day,campus closure
+2019-02-18,Mon,paid,19,35.0,-4.98,Washington's Birthday,campus closure
+2021-07-10,Sat,recovery,4,13.2,-4.94,,unexplained
+2018-08-12,Sun,free,40,57.0,-4.89,,unexplained
+2020-01-03,Fri,paid,15,30.4,-4.8,,unexplained
+2018-06-01,Fri,free,63,79.2,-4.68,,unexplained
+2019-01-31,Thu,paid,30,45.0,-4.67,,unexplained
+2018-09-11,Tue,free,106,90.3,4.54,,unexplained
+2020-01-09,Thu,paid,39,24.4,4.67,,unexplained
+2020-01-13,Mon,paid,44,29.3,4.7,,unexplained
+2019-02-01,Fri,paid,49,34.2,4.75,,unexplained
+2020-01-16,Thu,paid,51,29.9,6.74,,unexplained
