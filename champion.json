@@ -1,37 +1,37 @@
 {
-  "model": "GradientBoosting",
+  "model": "HistGB",
   "selected_by": "lowest mean TimeSeriesSplit WAPE over main windows W1, W2, W3",
-  "cv_WAPE_mean_main": 0.26402181411207426,
+  "cv_WAPE_mean_main": 0.3558065996517277,
   "params_per_window": {
     "W1": {
       "learning_rate": 0.05,
-      "max_depth": 3,
-      "n_estimators": 150,
-      "subsample": 0.8
+      "max_depth": null,
+      "max_iter": 150,
+      "min_samples_leaf": 10
     },
     "W2": {
       "learning_rate": 0.05,
-      "max_depth": 2,
-      "n_estimators": 150,
-      "subsample": 0.8
+      "max_depth": 3,
+      "max_iter": 150,
+      "min_samples_leaf": 10
     },
     "W3": {
       "learning_rate": 0.05,
-      "max_depth": 2,
-      "n_estimators": 300,
-      "subsample": 0.8
+      "max_depth": null,
+      "max_iter": 300,
+      "min_samples_leaf": 10
     },
     "S1": {
       "learning_rate": 0.05,
       "max_depth": 3,
-      "n_estimators": 150,
-      "subsample": 0.8
+      "max_iter": 150,
+      "min_samples_leaf": 10
     },
     "S2": {
       "learning_rate": 0.05,
-      "max_depth": 2,
-      "n_estimators": 300,
-      "subsample": 0.8
+      "max_depth": 3,
+      "max_iter": 150,
+      "min_samples_leaf": 10
     }
   },
   "predictors_per_window": {
@@ -136,12 +136,12 @@
     ]
   },
   "model_files": {
-    "W1": "models/W1_GradientBoosting.joblib",
-    "W2": "models/W2_GradientBoosting.joblib",
-    "W3": "models/W3_GradientBoosting.joblib",
-    "S1": "models/S1_GradientBoosting.joblib",
-    "S2": "models/S2_GradientBoosting.joblib"
+    "W1": "models/W1_HistGB.joblib",
+    "W2": "models/W2_HistGB.joblib",
+    "W3": "models/W3_HistGB.joblib",
+    "S1": "models/S1_HistGB.joblib",
+    "S2": "models/S2_HistGB.joblib"
   },
-  "runner_up": "ElasticNet",
-  "cv_WAPE_runner_up": 0.3683517216374992
+  "runner_up": "RandomForest",
+  "cv_WAPE_runner_up": 0.3786221788847164
 }

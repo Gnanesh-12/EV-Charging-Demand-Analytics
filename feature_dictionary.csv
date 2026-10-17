@@ -25,7 +25,8 @@ dow_5,predictor,1 if weekday = 5 (Monday is the reference)
 dow_6,predictor,1 if weekday = 6 (Monday is the reference)
 is_federal_holiday,calendar_info,1 on any US federal holiday (reference only; several do not close campuses)
 is_holiday_bridge,calendar_info,1 on the day after Thanksgiving (included in is_major_holiday)
-is_major_holiday,predictor,"1 on a major holiday (New Year, Memorial Day, 4 July, Juneteenth, Labor Day, Thanksgiving + next day, Christmas) - assumed closure"
+is_winter_break,calendar_info,1 on 24-31 December (included in is_major_holiday)
+is_major_holiday,predictor,"1 on a campus closure found in the data (New Year, MLK Day, Presidents' Day, Memorial Day, 4 July, Labor Day, Thanksgiving + next day, 24-31 Dec)"
 holiday_name,meta,"Name of the federal holiday or bridge day, empty otherwise"
 regime,meta,R1 free / R2 free with 14 kWh default / R3 paid / R4 COVID period
 is_r2_policy,predictor,1 from 1 Sep 2018 (14 kWh default for unclaimed sessions)

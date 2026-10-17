@@ -1,0 +1,16 @@
+,value
+forecast_start,2021-09-14
+forecast_end,2021-11-08
+days,56
+mean_sessions_per_day,24.725892857142856
+mean_weekday_sessions,28.272
+mean_weekend_sessions,15.860625
+total_sessions,1384.6499999999999
+mean_kWh_per_day,299.5523214285714
+total_kWh,16774.93
+first_week_sessions,169.8
+last_week_sessions,180.85
+growth_first_to_last_week,0.06507656065959933
+last8w_actual_weekday_mean,22.974358974358974
+last8w_actual_weekend_mean,11.375
+closure_days_in_horizon,0

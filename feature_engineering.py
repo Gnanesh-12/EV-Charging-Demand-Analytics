@@ -44,9 +44,12 @@ PAID_START = pd.Timestamp("2018-11-01")  # paid charging ($0.12/kWh), unclaimed 
 COVID_START = pd.Timestamp("2020-03-16")  # campus moves to remote operation
 REGIMES = ("R1 free", "R2 free, 14 kWh default", "R3 paid", "R4 COVID period")
 
-# Holidays on which the campus is assumed to be largely closed (assumption, see Issue #12).
-MAJOR_HOLIDAYS = frozenset({"New Year's Day", "Memorial Day", "Independence Day", "Juneteenth National Independence Day",
-                            "Labor Day", "Thanksgiving Day", "Christmas Day"})
+# Campus closures, taken from the data (Issue #16, section 1.6): holidays whose demand is below 60% of the same weekday in
+# the surrounding weeks (median across years). Juneteenth, Columbus Day and Veterans Day are normal days at this site.
+MAJOR_HOLIDAYS = frozenset({"New Year's Day", "Birthday of Martin Luther King, Jr.", "Washington's Birthday", "Memorial Day",
+                            "Independence Day", "Labor Day", "Thanksgiving Day", "Christmas Day"})
+WINTER_BREAK = True  # 24-31 December is also treated as a closure (median ratio 0.40 in Issue #16)
+WINTER_BREAK_NAME = "Winter break (24-31 Dec)"
 
 SESSION_COLUMNS = ("_id", "sessionID", "userID", "stationID", "spaceID", "connectionTime", "disconnectTime",
                    "doneChargingTime", "kWhDelivered", "connected_h", "charging_h", "avg_power_kW", "hour", "dayofweek",
@@ -140,16 +143,19 @@ def build_session_features(source: pd.DataFrame) -> pd.DataFrame:
 
 
 def holiday_flags(dates: pd.DatetimeIndex) -> pd.DataFrame:
-    """Federal holidays (reference), major holidays and the day after Thanksgiving (predictor)."""
+    """Federal holidays (reference); closures = major holidays, the day after Thanksgiving and the winter break (predictor)."""
     hol = USFederalHolidayCalendar().holidays(start=dates.min(), end=dates.max(), return_name=True)
     major = hol[hol.isin(MAJOR_HOLIDAYS)].index
     bridge = hol[hol == "Thanksgiving Day"].index + pd.Timedelta(days=1)
     out = pd.DataFrame(index=dates)
     out["is_federal_holiday"] = dates.isin(hol.index).astype(int)
     out["is_holiday_bridge"] = dates.isin(bridge).astype(int)
-    out["is_major_holiday"] = (dates.isin(major) | dates.isin(bridge)).astype(int)
+    winter = (dates.month == 12) & (dates.day >= 24) if WINTER_BREAK else np.zeros(len(dates), dtype=bool)
+    out["is_winter_break"] = winter.astype(int)
+    out["is_major_holiday"] = (dates.isin(major) | dates.isin(bridge) | winter).astype(int)
     out["holiday_name"] = pd.Series(hol.values, index=hol.index).reindex(dates).fillna("").values
     out.loc[out["is_holiday_bridge"] == 1, "holiday_name"] = "Day after Thanksgiving"
+    out.loc[(out["is_winter_break"] == 1) & (out["holiday_name"] == ""), "holiday_name"] = WINTER_BREAK_NAME
     return out
 
 
@@ -219,10 +225,11 @@ def feature_dictionary(daily: pd.DataFrame) -> pd.DataFrame:
         "week_of_year": ("calendar_info", "ISO week - not a predictor"),
         "is_federal_holiday": ("calendar_info", "1 on any US federal holiday (reference only; several do not close campuses)"),
         "is_holiday_bridge": ("calendar_info", "1 on the day after Thanksgiving (included in is_major_holiday)"),
+        "is_winter_break": ("calendar_info", "1 on 24-31 December (included in is_major_holiday)"),
         "dayofweek": ("predictor", "Day of week, 0 = Monday"),
         "is_weekend": ("predictor", "1 on Saturday/Sunday"),
-        "is_major_holiday": ("predictor", "1 on a major holiday (New Year, Memorial Day, 4 July, Juneteenth, Labor Day, "
-                                          "Thanksgiving + next day, Christmas) - assumed closure"),
+        "is_major_holiday": ("predictor", "1 on a campus closure found in the data (New Year, MLK Day, Presidents' Day, "
+                                          "Memorial Day, 4 July, Labor Day, Thanksgiving + next day, 24-31 Dec)"),
         "is_r2_policy": ("predictor", "1 from 1 Sep 2018 (14 kWh default for unclaimed sessions)"),
         "is_paid": ("predictor", "1 from 1 Nov 2018 (paid charging)"),
         "is_covid": ("predictor", "1 from the COVID start (campus in remote operation, then recovery)"),

@@ -1,0 +1,7 @@
+regime,model,days,mean_actual,mean_forecast,MAE,RMSE,WAPE,bias,R2_within_regime,coverage_80,coverage_95,width_80,width_95,MAE_closure_days,MAE_other_days,closure_days,source
+paid,SARIMAX + closures,56.0,29.4821,25.4402,5.7194,6.8212,0.194,-4.0419,0.793,0.8571,0.9643,18.0396,26.4248,6.515,5.6899,2.0,holdout
+recovery,SARIMAX + closures + drift,28.0,20.5714,19.48,3.9249,5.7953,0.1908,-1.0914,0.4835,0.6071,0.7857,8.1934,12.5307,9.129,3.7322,1.0,holdout
+paid,SARIMAX + closures,336.0,26.4018,26.0813,4.4473,6.1029,0.1684,-0.3205,0.8335,0.875,0.9375,16.296,23.8331,,,,backtest
+paid,SARIMAX + closures + drift,336.0,26.4018,24.0901,4.9246,6.567,0.1865,-2.3117,0.8073,0.8095,0.9286,15.3463,22.3836,,,,backtest
+recovery,SARIMAX + closures,448.0,15.4442,13.6269,3.4494,4.4179,0.2233,-1.8173,0.3798,0.6384,0.817,7.8788,12.0496,,,,backtest
+recovery,SARIMAX + closures + drift,448.0,15.4442,13.9501,3.178,4.0774,0.2058,-1.4941,0.4717,0.6473,0.8192,7.3955,11.3105,,,,backtest

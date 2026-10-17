@@ -1,0 +1,11 @@
+regime,date,weekday,actual,forecast,error,lo80,hi80,explanation
+recovery,2021-09-10,Fri,41.0,21.301,-19.699,16.936,25.666,under-forecast
+paid,2020-01-16,Thu,51.0,32.074,-18.926000000000002,23.619,40.528,under-forecast
+paid,2020-01-13,Mon,44.0,30.157,-13.843,22.172,38.143,under-forecast
+paid,2020-02-19,Wed,46.0,32.161,-13.838999999999999,22.861,41.46,under-forecast
+recovery,2021-09-09,Thu,34.0,22.212,-11.788,17.852,26.571,under-forecast
+paid,2020-02-20,Thu,43.0,32.508,-10.491999999999997,23.206,41.811,under-forecast
+paid,2020-03-06,Fri,42.0,31.853,-10.146999999999998,22.343,41.363,under-forecast
+paid,2020-02-26,Wed,42.0,32.161,-9.838999999999999,22.758,41.564,under-forecast
+paid,2020-01-14,Tue,46.0,36.3,-9.700000000000003,28.09,44.51,under-forecast
+paid,2020-03-05,Thu,42.0,32.509,-9.491,23.001,42.016,under-forecast

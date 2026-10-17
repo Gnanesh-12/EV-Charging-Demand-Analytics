@@ -1,0 +1,14 @@
+,value
+stations_installed,55.0
+stations_used_last_8_weeks,36.0
+stations_used_paid_regime,54.0
+sessions_per_used_station_per_day,0.5391865079365079
+share_of_sessions_on_top_7_stations,0.6264949402023919
+mean_connection_h,3.3678851068179494
+share_of_plugged_in_time_not_charging,0.6141126993367129
+planning_buffer_sessions_p80,5.117600000000001
+planning_buffer_sessions_p90,6.479700000000002
+chargers_needed_weekday_p90,26.0
+chargers_needed_weekend_p90,15.0
+chargers_needed_upper_bound_i16,33.0
+chargers_needed_at_paid_level_p95,37.0

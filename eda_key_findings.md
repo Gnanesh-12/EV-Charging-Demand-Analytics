@@ -1,6 +1,6 @@
 # EDA key findings (numbers computed from the data)
 
-- **Scope.** 31,387 sessions at 55 stations, 2018-04-25 to 2021-09-13 (1238 calendar days, 1132 with data), one site (open to the public; mostly campus users, so a hybrid of workplace and public charging). Findings below describe **normal operation** (2018-04-25 to 2020-03-15, 27,898 sessions on 691 days) unless they name another regime; the COVID period from 2020-03-16 is reported separately (data-detected break: week of 2019-12-30). The paid regime has 16 complete months before COVID, a full year, but a single year cannot separate seasonality from trend.
+- **Scope.** 31,387 sessions at 55 stations, 2018-04-25 to 2021-09-13 (1238 calendar days, 1132 with data), one site (open to the public; mostly campus users, so a hybrid of workplace and public charging). Findings below describe **normal operation** (2018-04-25 to 2020-03-15, 27,898 sessions on 691 days) unless they name another regime; the COVID period from 2020-03-16 is reported separately (data-detected break: week of 2020-03-16). The paid regime has 16 complete months before COVID, a full year, but a single year cannot separate seasonality from trend.
 
 - **Data gaps.** 2020-08-04 to 2020-11-17 (106 days with no sessions). Gap days are excluded from daily statistics, per-day rates, the plugged-in profile and trend tests.
 
