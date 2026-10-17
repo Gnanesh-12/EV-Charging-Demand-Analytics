@@ -1,0 +1,273 @@
+regime,antecedent,consequent,n_antecedent,support,confidence,lift,rule,also_in_pooled_final,policy_driven
+R1 free,charging_share=mostly_charging + day_type=weekday + power=high,arrival=evening,3,0.06183470876689391,0.6132858837485172,2.9301047280122012,{charging_share=mostly_charging + day_type=weekday + power=high} -> {arrival=evening},False,False
+R1 free,arrival=evening + stay=under_2h,power=high,2,0.06315034086831718,0.6839378238341969,2.870684811786004,{arrival=evening + stay=under_2h} -> {power=high},False,False
+R1 free,energy=under_2kWh,stay=under_2h,1,0.06075828250209305,0.6287128712871287,2.5818606664202766,{energy=under_2kWh} -> {stay=under_2h},False,False
+R1 free,arrival=evening + charging_share=mostly_charging + day_type=weekday,stay=under_2h,3,0.06757564884583184,0.6101511879049676,2.5056356002325315,{arrival=evening + charging_share=mostly_charging + day_type=weekday} -> {stay=under_2h},False,False
+R1 free,arrival=morning + charging_share=mostly_idle,stay=6-10h,2,0.08491807200095683,0.6543778801843319,2.1608425972437595,{arrival=morning + charging_share=mostly_idle} -> {stay=6-10h},True,False
+R1 free,charging_share=mostly_idle + power=low + stay=6-10h,arrival=morning,3,0.05740940078937926,0.8465608465608465,2.1021963879106735,{charging_share=mostly_idle + power=low + stay=6-10h} -> {arrival=morning},False,False
+R1 free,energy=2-7kWh + stay=6-10h,arrival=morning,2,0.08228680779811028,0.8452088452088452,2.0988390718120447,{energy=2-7kWh + stay=6-10h} -> {arrival=morning},True,False
+R1 free,arrival=morning + charging_share=partly_idle,stay=6-10h,2,0.06279153211338356,0.6287425149700598,2.076191219456821,{arrival=morning + charging_share=partly_idle} -> {stay=6-10h},False,False
+R1 free,arrival=morning + power=low + station=other,stay=6-10h,3,0.12797512259299126,0.6145893164847789,2.029455479908861,{arrival=morning + power=low + station=other} -> {stay=6-10h},False,False
+R1 free,arrival=morning + day_type=weekday + station=other,stay=6-10h,3,0.1547661762947016,0.6043904717421766,1.9957775411675904,{arrival=morning + day_type=weekday + station=other} -> {stay=6-10h},False,False
+R1 free,charging_share=mostly_idle + energy=2-7kWh + power=low,arrival=morning,3,0.06649922258103098,0.7842031029619183,1.94734842407621,{charging_share=mostly_idle + energy=2-7kWh + power=low} -> {arrival=morning},False,False
+R1 free,charging_share=mostly_idle + stay=6-10h,arrival=morning,2,0.08491807200095683,0.7759562841530055,1.9268697629353368,{charging_share=mostly_idle + stay=6-10h} -> {arrival=morning},False,False
+R1 free,arrival=morning + charging_share=mostly_idle,energy=2-7kWh,2,0.0881473507953594,0.6792626728110599,1.8046759476877254,{arrival=morning + charging_share=mostly_idle} -> {energy=2-7kWh},False,False
+R1 free,stay=6-10h,arrival=morning,1,0.21540485587848343,0.7112954186413902,1.766302641895059,{stay=6-10h} -> {arrival=morning},True,False
+R1 free,charging_share=mostly_idle + energy=2-7kWh,arrival=morning,2,0.0881473507953594,0.688785046728972,1.7104044477876255,{charging_share=mostly_idle + energy=2-7kWh} -> {arrival=morning},True,False
+R1 free,charging_share=mostly_idle + power=low,arrival=morning,2,0.08575529242913527,0.6848137535816617,1.7005428552706485,{charging_share=mostly_idle + power=low} -> {arrival=morning},False,False
+R1 free,stay=under_2h,charging_share=mostly_charging,1,0.21947135510106447,0.9012770137524558,1.659818747133102,{stay=under_2h} -> {charging_share=mostly_charging},True,False
+R1 free,arrival=morning + energy=2-7kWh + station=other,power=low,3,0.08719052744886975,0.84375,1.644044220461431,{arrival=morning + energy=2-7kWh + station=other} -> {power=low},True,False
+R1 free,arrival=morning + charging_share=mostly_charging + day_type=weekday,power=low,3,0.12809472551130247,0.8360655737704917,1.6290711401293596,{arrival=morning + charging_share=mostly_charging + day_type=weekday} -> {power=low},True,False
+R1 free,charging_share=mostly_idle + overnight=no,energy=2-7kWh,2,0.11063269943786629,0.6069553805774278,1.61256877566186,{charging_share=mostly_idle + overnight=no} -> {energy=2-7kWh},False,False
+R1 free,energy=7-13kWh + power=low,arrival=morning,2,0.08180839612486544,0.6428571428571428,1.5963553820696676,{energy=7-13kWh + power=low} -> {arrival=morning},True,False
+R1 free,arrival=midday + day_type=weekday,power=low,2,0.11242674321253439,0.787929589270746,1.5352783257731781,{arrival=midday + day_type=weekday} -> {power=low},False,False
+R1 free,arrival=morning + charging_share=partly_idle,power=low,2,0.07833991149384045,0.784431137724551,1.5284616039419647,{arrival=morning + charging_share=partly_idle} -> {power=low},False,False
+R1 free,charging_share=mostly_idle + day_type=weekday,arrival=morning,2,0.12630068173663436,0.6089965397923874,1.5122720728257057,{charging_share=mostly_idle + day_type=weekday} -> {arrival=morning},False,False
+R1 free,day_type=weekday + power=low,arrival=morning,2,0.2888410477215644,0.6046569854782172,1.501496007004269,{day_type=weekday + power=low} -> {arrival=morning},False,False
+R1 free,energy=2-7kWh + power=low + station=other,arrival=morning,3,0.08719052744886975,0.6029776674937964,1.4973258918668346,{energy=2-7kWh + power=low + station=other} -> {arrival=morning},False,False
+R1 free,stay=6-10h,power=low,1,0.22868077981102738,0.7551342812006319,1.4713767711765284,{stay=6-10h} -> {power=low},False,False
+R1 free,arrival=morning,power=low,1,0.2950603994737472,0.7326997326997328,1.4276631240043034,{arrival=morning} -> {power=low},False,False
+R1 free,overnight=no + power=high,charging_share=mostly_charging,2,0.16289917473986365,0.7600446428571429,1.3997209821428573,{overnight=no + power=high} -> {charging_share=mostly_charging},False,False
+R1 free,day_type=weekday + energy=2-7kWh + station=other,power=low,3,0.14029422317904558,0.7161172161172161,1.3953521426138533,{day_type=weekday + energy=2-7kWh + station=other} -> {power=low},False,False
+R1 free,charging_share=partly_idle + day_type=weekday,power=low,2,0.12809472551130247,0.6821656050955414,1.3291975353539551,{charging_share=partly_idle + day_type=weekday} -> {power=low},False,False
+R1 free,arrival=midday + station=other,power=low,2,0.09137662958976199,0.680926916221034,1.3267839539790411,{arrival=midday + station=other} -> {power=low},False,False
+R1 free,day_type=weekday + energy=under_2kWh,power=low,2,0.05154885779213013,0.6661514683153014,1.29799404022005,{day_type=weekday + energy=under_2kWh} -> {power=low},False,False
+R1 free,power=high,charging_share=mostly_charging,1,0.1669656739624447,0.7008032128514057,1.290620190011146,{power=high} -> {charging_share=mostly_charging},False,False
+R1 free,arrival=midday + day_type=weekday,station=other,2,0.11182872862097835,0.7837384744341994,1.2833602398637567,{arrival=midday + day_type=weekday} -> {station=other},True,False
+R1 free,arrival=afternoon,charging_share=mostly_charging,1,0.11422078698720249,0.6910274963820551,1.2726169377203442,{arrival=afternoon} -> {charging_share=mostly_charging},False,False
+R1 free,energy=7-13kWh + overnight=no + station=busy,charging_share=mostly_charging,3,0.06004066499222581,0.6895604395604396,1.2699151619305804,{energy=7-13kWh + overnight=no + station=busy} -> {charging_share=mostly_charging},False,False
+R1 free,charging_share=partly_idle + station=other,power=low,2,0.09771558426025595,0.6494435612082672,1.2654387357870711,{charging_share=partly_idle + station=other} -> {power=low},False,False
+R1 free,energy=2-7kWh + station=other,power=low,2,0.14459992823824902,0.6486051502145923,1.263805094603637,{energy=2-7kWh + station=other} -> {power=low},False,False
+R1 free,energy=7-13kWh + stay=6-10h,station=other,2,0.07140294223179046,0.7683397683397684,1.2581450848195854,{energy=7-13kWh + stay=6-10h} -> {station=other},True,False
+R1 free,day_type=weekday + energy=2-7kWh,power=low,2,0.2028465494558067,0.6441321686289404,1.2550895040565302,{day_type=weekday + energy=2-7kWh} -> {power=low},False,False
+R1 free,day_type=weekday + station=other,power=low,2,0.33883506757564885,0.6425493309140395,1.2520053497488428,{day_type=weekday + station=other} -> {power=low},False,False
+R1 free,charging_share=partly_idle + stay=6-10h,station=other,2,0.07511063269943787,0.7630619684082625,1.2495027649552453,{charging_share=partly_idle + stay=6-10h} -> {station=other},True,False
+R1 free,energy=7-13kWh + power=low,station=other,2,0.09699796675038871,0.762218045112782,1.2481208529549492,{energy=7-13kWh + power=low} -> {station=other},True,False
+R1 free,power=low + stay=6-10h,station=other,2,0.17366343738787227,0.7594142259414226,1.243529640246031,{power=low + stay=6-10h} -> {station=other},True,False
+R1 free,arrival=midday + power=low,station=other,2,0.09137662958976199,0.757185332011893,1.2398798591757614,{arrival=midday + power=low} -> {station=other},True,False
+R1 free,arrival=evening,charging_share=mostly_charging,1,0.14053342901566798,0.6714285714285715,1.236522970421649,{arrival=evening} -> {charging_share=mostly_charging},False,False
+R1 free,day_type=weekend,charging_share=mostly_charging,1,0.11900490371965076,0.6713900134952767,1.236451960976654,{day_type=weekend} -> {charging_share=mostly_charging},False,False
+R1 free,charging_share=partly_idle + energy=7-13kWh,station=other,2,0.05932304748235857,0.7537993920972644,1.2343354323002798,{charging_share=partly_idle + energy=7-13kWh} -> {station=other},True,False
+R1 free,charging_share=mostly_idle + overnight=no,power=low,2,0.11517761033369214,0.6318897637795275,1.2312352167235214,{charging_share=mostly_idle + overnight=no} -> {power=low},False,False
+R1 free,energy=13-14kWh_default + overnight=no,charging_share=mostly_charging,2,0.07080492764023442,0.6659167604049494,1.226372254129027,{energy=13-14kWh_default + overnight=no} -> {charging_share=mostly_charging},False,False
+R1 free,charging_share=partly_idle + overnight=no,power=low,2,0.13108479846908264,0.628080229226361,1.2238123506319283,{charging_share=partly_idle + overnight=no} -> {power=low},False,False
+R1 free,day_type=weekday + stay=6-10h,station=other,2,0.2127735916756369,0.7459119496855346,1.2214198612065716,{day_type=weekday + stay=6-10h} -> {station=other},False,False
+R1 free,arrival=morning + energy=7-13kWh + power=low,day_type=weekday,3,0.08156919028824303,0.9970760233918128,1.2196858275901898,{arrival=morning + energy=7-13kWh + power=low} -> {day_type=weekday},False,False
+R1 free,arrival=midday,power=low,1,0.12067934457600765,0.6255424674519529,1.2188675297985967,{arrival=midday} -> {power=low},False,False
+R1 free,arrival=morning + charging_share=mostly_idle + power=low,day_type=weekday,3,0.08515727783757923,0.99302649930265,1.2147321961476893,{arrival=morning + charging_share=mostly_idle + power=low} -> {day_type=weekday},False,False
+R1 free,charging_share=mostly_idle + power=low + stay=6-10h,day_type=weekday,3,0.06733644300920942,0.9929453262786595,1.2146329002217808,{charging_share=mostly_idle + power=low + stay=6-10h} -> {day_type=weekday},False,False
+R1 free,charging_share=mostly_charging + stay=6-10h,station=other,2,0.07020691304867839,0.7411616161616162,1.2136412598369122,{charging_share=mostly_charging + stay=6-10h} -> {station=other},True,False
+R1 free,energy=7-13kWh + power=low + stay=6-10h,day_type=weekday,3,0.07008731013036718,0.9915397631133672,1.2129135273432134,{energy=7-13kWh + power=low + stay=6-10h} -> {day_type=weekday},False,False
+R1 free,charging_share=partly_idle + power=low + stay=6-10h,day_type=weekday,3,0.07415380935294821,0.9904153354632589,1.2115380570312082,{charging_share=partly_idle + power=low + stay=6-10h} -> {day_type=weekday},False,False
+R1 free,arrival=morning + power=low + station=other,day_type=weekday,3,0.20619543116852052,0.9902354968408961,1.211318067167042,{arrival=morning + power=low + station=other} -> {day_type=weekday},False,False
+R1 free,energy=2-7kWh + power=low + stay=6-10h,day_type=weekday,3,0.08001435235019734,0.9896449704142012,1.2105956982638093,{energy=2-7kWh + power=low + stay=6-10h} -> {day_type=weekday},False,False
+R1 free,charging_share=partly_idle + energy=7-13kWh + power=low,day_type=weekday,3,0.05059203444564048,0.9883177570093459,1.208972167718382,{charging_share=partly_idle + energy=7-13kWh + power=low} -> {day_type=weekday},False,False
+R1 free,power=low + station=other + stay=6-10h,day_type=weekday,3,0.1707929673484033,0.9834710743801652,1.203043402032562,{power=low + station=other + stay=6-10h} -> {day_type=weekday},False,False
+R1 free,energy=2-7kWh + station=other + stay=6-10h,day_type=weekday,3,0.06781485468245425,0.9826689774696707,1.2020622268652403,{energy=2-7kWh + station=other + stay=6-10h} -> {day_type=weekday},False,False
+R1 free,energy=7-13kWh + station=busy + user=unclaimed,charging_share=mostly_charging,3,0.061356297093649086,0.6526717557251909,1.2019798567441236,{energy=7-13kWh + station=busy + user=unclaimed} -> {charging_share=mostly_charging},True,True
+R1 free,arrival=morning + stay=6-10h,day_type=weekday,2,0.21145795957421362,0.9816768461965575,1.2008485897658254,{arrival=morning + stay=6-10h} -> {day_type=weekday},False,False
+R1 free,energy=7-13kWh + station=other + stay=6-10h,day_type=weekday,3,0.07008731013036718,0.9815745393634839,1.2007234416412713,{energy=7-13kWh + station=other + stay=6-10h} -> {day_type=weekday},False,False
+R1 free,arrival=morning + stay=over_10h,day_type=weekday,2,0.05681138619782323,0.981404958677686,1.2005159999274517,{arrival=morning + stay=over_10h} -> {day_type=weekday},False,False
+R1 free,stay=6-10h + user=unclaimed,station=other,2,0.21875373759119723,0.7330661322645291,1.2003850238667702,{stay=6-10h + user=unclaimed} -> {station=other},True,False
+R1 free,charging_share=partly_idle + day_type=weekday + power=low,station=other,3,0.09388829087429733,0.7329598506069095,1.2002109892135469,{charging_share=partly_idle + day_type=weekday + power=low} -> {station=other},False,False
+"R2 free, 14 kWh default",arrival=evening + energy=2-7kWh,stay=under_2h,2,0.054699049630411826,0.6981132075471698,2.584492601826309,{arrival=evening + energy=2-7kWh} -> {stay=under_2h},True,False
+"R2 free, 14 kWh default",arrival=evening + charging_share=mostly_charging,stay=under_2h,2,0.08511087645195353,0.6773109243697478,2.5074802399458607,{arrival=evening + charging_share=mostly_charging} -> {stay=under_2h},True,False
+"R2 free, 14 kWh default",arrival=evening + power=high + user=unclaimed,stay=under_2h,3,0.06061246040126716,0.6478555304740407,2.3984331014812996,{arrival=evening + power=high + user=unclaimed} -> {stay=under_2h},True,True
+"R2 free, 14 kWh default",stay=over_10h + user=unclaimed,charging_share=mostly_idle,2,0.058711721224920806,0.6275395033860046,2.388584846087405,{stay=over_10h + user=unclaimed} -> {charging_share=mostly_idle},False,True
+"R2 free, 14 kWh default",arrival=morning + charging_share=mostly_idle,stay=6-10h,2,0.10601900739176347,0.6613965744400527,2.3851582482662983,{arrival=morning + charging_share=mostly_idle} -> {stay=6-10h},True,False
+"R2 free, 14 kWh default",arrival=morning + day_type=weekday + energy=2-7kWh,charging_share=mostly_idle,3,0.08848996832101373,0.6134699853587117,2.3350324603484727,{arrival=morning + day_type=weekday + energy=2-7kWh} -> {charging_share=mostly_idle},False,False
+"R2 free, 14 kWh default",charging_share=mostly_charging + day_type=weekend,stay=under_2h,2,0.07687434002111933,0.6232876712328768,2.307480158942667,{charging_share=mostly_charging + day_type=weekend} -> {stay=under_2h},False,False
+"R2 free, 14 kWh default",arrival=morning + energy=2-7kWh + station=other,charging_share=mostly_idle,3,0.06399155227032735,0.603585657370518,2.2974100383033784,{arrival=morning + energy=2-7kWh + station=other} -> {charging_share=mostly_idle},False,False
+"R2 free, 14 kWh default",energy=under_2kWh,stay=under_2h,1,0.05448785638859557,0.6128266033254157,2.2687521241171567,{energy=under_2kWh} -> {stay=under_2h},False,False
+"R2 free, 14 kWh default",day_type=weekend + power=high + user=unclaimed,stay=under_2h,3,0.05828933474128828,0.6119733924611974,2.2655934427707347,{day_type=weekend + power=high + user=unclaimed} -> {stay=under_2h},False,True
+"R2 free, 14 kWh default",arrival=afternoon + charging_share=mostly_charging + user=unclaimed,stay=under_2h,3,0.061034846884899685,0.6109936575052853,2.2619663551896214,{arrival=afternoon + charging_share=mostly_charging + user=unclaimed} -> {stay=under_2h},False,True
+"R2 free, 14 kWh default",charging_share=mostly_charging + station=busy + user=unclaimed,stay=under_2h,3,0.11256599788806758,0.6056818181818181,2.2423013362712343,{charging_share=mostly_charging + station=busy + user=unclaimed} -> {stay=under_2h},False,True
+"R2 free, 14 kWh default",power=high + station=busy + user=unclaimed,stay=under_2h,3,0.07856388595564942,0.6048780487804878,2.2393256927096243,{power=high + station=busy + user=unclaimed} -> {stay=under_2h},False,True
+"R2 free, 14 kWh default",day_type=weekend + stay=under_2h,power=high,2,0.061246040126715945,0.6987951807228916,2.0836241692209643,{day_type=weekend + stay=under_2h} -> {power=high},False,False
+"R2 free, 14 kWh default",charging_share=mostly_idle + power=low + stay=6-10h,arrival=morning,3,0.05047518479408659,0.8917910447761194,2.06586624120104,{charging_share=mostly_idle + power=low + stay=6-10h} -> {arrival=morning},False,False
+"R2 free, 14 kWh default",energy=2-7kWh + stay=6-10h,arrival=morning,2,0.07497360084477296,0.8679706601466992,2.010685457825157,{energy=2-7kWh + stay=6-10h} -> {arrival=morning},True,False
+"R2 free, 14 kWh default",arrival=morning + charging_share=mostly_charging + day_type=weekday,power=low,3,0.10876451953537487,0.7584683357879235,1.9754387073464343,{arrival=morning + charging_share=mostly_charging + day_type=weekday} -> {power=low},True,False
+"R2 free, 14 kWh default",arrival=morning + stay=over_10h,power=low,2,0.0542766631467793,0.7536656891495601,1.9629301639841403,{arrival=morning + stay=over_10h} -> {power=low},True,False
+"R2 free, 14 kWh default",arrival=morning + charging_share=mostly_charging + station=other,power=low,3,0.08426610348468849,0.7485928705440901,1.9497179549099375,{arrival=morning + charging_share=mostly_charging + station=other} -> {power=low},True,False
+"R2 free, 14 kWh default",power=low + stay=6-10h,arrival=morning,2,0.1440337909186906,0.8399014778325122,1.9456621807910692,{power=low + stay=6-10h} -> {arrival=morning},False,False
+"R2 free, 14 kWh default",arrival=morning + charging_share=partly_idle + user=unclaimed,power=low,3,0.056810982048574446,0.7451523545706371,1.9407570951000916,{arrival=morning + charging_share=partly_idle + user=unclaimed} -> {power=low},True,True
+"R2 free, 14 kWh default",charging_share=mostly_charging + stay=6-10h,arrival=morning,2,0.05786694825765575,0.8328267477203647,1.9292733123561285,{charging_share=mostly_charging + stay=6-10h} -> {arrival=morning},False,False
+"R2 free, 14 kWh default",arrival=morning + energy=2-7kWh + station=other,power=low,3,0.07729672650475185,0.7290836653386454,1.8989060260607735,{arrival=morning + energy=2-7kWh + station=other} -> {power=low},True,False
+"R2 free, 14 kWh default",arrival=morning + charging_share=partly_idle + station=other,power=low,3,0.053220696937697994,0.7283236994219653,1.8969266868883419,{arrival=morning + charging_share=partly_idle + station=other} -> {power=low},False,False
+"R2 free, 14 kWh default",charging_share=mostly_idle + energy=2-7kWh + power=low,arrival=morning,3,0.053220696937697994,0.802547770700637,1.8591309658843034,{charging_share=mostly_idle + energy=2-7kWh + power=low} -> {arrival=morning},False,False
+"R2 free, 14 kWh default",charging_share=mostly_charging + day_type=weekend,power=high,2,0.07624076029567053,0.6181506849315068,1.843163408785066,{charging_share=mostly_charging + day_type=weekend} -> {power=high},False,False
+"R2 free, 14 kWh default",energy=7-13kWh + power=low,arrival=morning,2,0.06779303062302007,0.7886977886977887,1.8270469811565704,{energy=7-13kWh + power=low} -> {arrival=morning},True,False
+"R2 free, 14 kWh default",stay=under_2h,power=high,1,0.16494192185850054,0.6106333072713057,1.8207485578901967,{stay=under_2h} -> {power=high},False,False
+"R2 free, 14 kWh default",day_type=weekday + power=low + stay=over_10h,arrival=morning,3,0.05385427666314678,0.7822085889570553,1.8120145150252722,{day_type=weekday + power=low + stay=over_10h} -> {arrival=morning},True,False
+"R2 free, 14 kWh default",stay=6-10h,arrival=morning,1,0.21689545934530094,0.7821782178217821,1.81194415919087,{stay=6-10h} -> {arrival=morning},True,False
+"R2 free, 14 kWh default",arrival=morning + day_type=weekday + energy=13-14kWh_default,power=low,3,0.05005279831045407,0.6950146627565983,1.810172952779149,{arrival=morning + day_type=weekday + energy=13-14kWh_default} -> {power=low},False,False
+"R2 free, 14 kWh default",arrival=evening + charging_share=mostly_charging,power=high,2,0.07560718057022175,0.6016806722689076,1.7940541455877062,{arrival=evening + charging_share=mostly_charging} -> {power=high},False,False
+"R2 free, 14 kWh default",station=other + stay=6-10h,power=low,2,0.13980992608236537,0.6748216106014271,1.7575799374025067,{station=other + stay=6-10h} -> {power=low},False,False
+"R2 free, 14 kWh default",arrival=morning + station=other,power=low,2,0.20232312565997887,0.6746478873239437,1.7571274733107114,{arrival=morning + station=other} -> {power=low},False,False
+"R2 free, 14 kWh default",arrival=morning + charging_share=partly_idle,power=low,2,0.06779303062302007,0.6701461377870565,1.7454026195939012,{arrival=morning + charging_share=partly_idle} -> {power=low},False,False
+"R2 free, 14 kWh default",arrival=morning + charging_share=mostly_charging,power=low,2,0.11172122492080254,0.6604244694132335,1.7200824327126847,{arrival=morning + charging_share=mostly_charging} -> {power=low},True,False
+"R2 free, 14 kWh default",stay=under_2h,charging_share=mostly_charging,1,0.23189017951425556,0.8584831899921814,1.7129868961706611,{stay=under_2h} -> {charging_share=mostly_charging},True,False
+"R2 free, 14 kWh default",charging_share=mostly_idle + power=low,arrival=morning,2,0.08046462513199577,0.7326923076923078,1.6973082568116815,{charging_share=mostly_idle + power=low} -> {arrival=morning},False,False
+"R2 free, 14 kWh default",power=low + stay=over_10h,arrival=morning,2,0.0542766631467793,0.7321937321937322,1.696153288619042,{power=low + stay=over_10h} -> {arrival=morning},True,False
+"R2 free, 14 kWh default",arrival=morning + charging_share=mostly_idle + user=unclaimed,energy=2-7kWh,3,0.08215417106652587,0.6116352201257861,1.6644211306296535,{arrival=morning + charging_share=mostly_idle + user=unclaimed} -> {energy=2-7kWh},False,True
+"R2 free, 14 kWh default",stay=over_10h + user=unclaimed,power=low,2,0.05807814149947202,0.6207674943566592,1.6167954267210018,{stay=over_10h + user=unclaimed} -> {power=low},True,True
+"R2 free, 14 kWh default",stay=6-10h,power=low,1,0.17148891235480465,0.6184310738766184,1.6107101951626999,{stay=6-10h} -> {power=low},False,False
+"R2 free, 14 kWh default",day_type=weekday + stay=over_10h,power=low,2,0.06884899683210137,0.6150943396226415,1.6020196359258567,{day_type=weekday + stay=over_10h} -> {power=low},False,False
+"R2 free, 14 kWh default",power=low,arrival=morning,1,0.25997888067581837,0.6771177117711771,1.5685676933642483,{power=low} -> {arrival=morning},False,False
+"R2 free, 14 kWh default",arrival=morning,power=low,1,0.25997888067581837,0.6022504892367906,1.5685676933642483,{arrival=morning} -> {power=low},False,False
+"R2 free, 14 kWh default",charging_share=mostly_idle + day_type=weekday,arrival=morning,2,0.155649419218585,0.6645626690712353,1.539483482413062,{charging_share=mostly_idle + day_type=weekday} -> {arrival=morning},False,False
+"R2 free, 14 kWh default",day_type=weekday + request=not_met,arrival=morning,2,0.06293558606124604,0.6520787746170679,1.5105640889490295,{day_type=weekday + request=not_met} -> {arrival=morning},False,False
+"R2 free, 14 kWh default",day_type=weekday + user=claimed,arrival=morning,2,0.07518479408658924,0.6496350364963505,1.5049030811204596,{day_type=weekday + user=claimed} -> {arrival=morning},False,False
+"R2 free, 14 kWh default",day_type=weekday + stay=over_10h,arrival=morning,2,0.07159450897571278,0.6396226415094339,1.4817090056493003,{day_type=weekday + stay=over_10h} -> {arrival=morning},False,False
+"R2 free, 14 kWh default",charging_share=mostly_idle,arrival=morning,1,0.16029567053854277,0.610128617363344,1.413385030927316,{charging_share=mostly_idle} -> {arrival=morning},False,False
+"R2 free, 14 kWh default",day_type=weekend + power=high,charging_share=mostly_charging,2,0.07624076029567053,0.7009708737864077,1.3986924093462452,{day_type=weekend + power=high} -> {charging_share=mostly_charging},True,False
+"R2 free, 14 kWh default",arrival=evening + power=high,charging_share=mostly_charging,2,0.07560718057022175,0.6819047619047619,1.3606485662111452,{arrival=evening + power=high} -> {charging_share=mostly_charging},True,False
+"R2 free, 14 kWh default",energy=7-13kWh + stay=6-10h,station=other,2,0.06462513199577613,0.8181818181818181,1.325381768419743,{energy=7-13kWh + stay=6-10h} -> {station=other},True,False
+"R2 free, 14 kWh default",power=low + stay=6-10h,station=other,2,0.13980992608236537,0.8152709359605911,1.3206663981434823,{power=low + stay=6-10h} -> {station=other},True,False
+"R2 free, 14 kWh default",arrival=afternoon,charging_share=mostly_charging,1,0.11066525871172123,0.655,1.3069637589549095,{arrival=afternoon} -> {charging_share=mostly_charging},False,False
+"R2 free, 14 kWh default",arrival=midday + day_type=weekday,station=other,2,0.08130939809926083,0.7954545454545455,1.2885656081858614,{arrival=midday + day_type=weekday} -> {station=other},True,False
+"R2 free, 14 kWh default",arrival=evening,charging_share=mostly_charging,1,0.12565997888067582,0.6296296296296297,1.256340622122333,{arrival=evening} -> {charging_share=mostly_charging},False,False
+"R2 free, 14 kWh default",day_type=weekend,charging_share=mostly_charging,1,0.12333685322069694,0.628632938643703,1.2543518602941144,{day_type=weekend} -> {charging_share=mostly_charging},False,False
+"R2 free, 14 kWh default",arrival=morning + stay=over_10h,day_type=weekday,2,0.07159450897571278,0.9941348973607038,1.2479397505310001,{arrival=morning + stay=over_10h} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",arrival=morning + stay=6-10h,day_type=weekday,2,0.21246040126715945,0.9795520934761441,1.2296339243397516,{arrival=morning + stay=6-10h} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",energy=7-13kWh + power=low,day_type=weekday,2,0.08405491024287223,0.977886977886978,1.2275437010325665,{energy=7-13kWh + power=low} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",arrival=morning + day_type=weekday + energy=13-14kWh_default,station=other,3,0.05448785638859557,0.7565982404692083,1.2256218503666443,{arrival=morning + day_type=weekday + energy=13-14kWh_default} -> {station=other},False,False
+"R2 free, 14 kWh default",arrival=morning + charging_share=partly_idle + day_type=weekday,station=other,3,0.06884899683210137,0.7546296296296295,1.2224328759138885,{arrival=morning + charging_share=partly_idle + day_type=weekday} -> {station=other},False,False
+"R2 free, 14 kWh default",energy=2-7kWh + stay=6-10h,day_type=weekday,2,0.08405491024287223,0.9731051344743277,1.2215410423478106,{energy=2-7kWh + stay=6-10h} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",arrival=morning + charging_share=mostly_idle,day_type=weekday,2,0.155649419218585,0.9710144927536232,1.2189166551400865,{arrival=morning + charging_share=mostly_idle} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",power=low + stay=6-10h,day_type=weekday,2,0.16642027455121436,0.9704433497536945,1.2181996980603775,{power=low + stay=6-10h} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",arrival=morning + power=low,day_type=weekday,2,0.25174234424498415,0.9683184402924452,1.2155322944816351,{arrival=morning + power=low} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",charging_share=mostly_idle + energy=2-7kWh + power=low,day_type=weekday,3,0.06420274551214361,0.9681528662420383,1.2153244490074369,{charging_share=mostly_idle + energy=2-7kWh + power=low} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",power=high,charging_share=mostly_charging,1,0.20422386483632524,0.6089420654911838,1.2150613906872125,{power=high} -> {charging_share=mostly_charging},False,False
+"R2 free, 14 kWh default",arrival=morning + day_type=weekday + user=unclaimed,station=other,3,0.2365364308342133,0.7481629926519705,1.2119574992155595,{arrival=morning + day_type=weekday + user=unclaimed} -> {station=other},False,False
+"R2 free, 14 kWh default",power=low,station=other,1,0.28722280887011614,0.7480748074807481,1.2118146470822244,{power=low} -> {station=other},False,False
+"R2 free, 14 kWh default",stay=6-10h,station=other,1,0.2071805702217529,0.7471439451637472,1.2103067329286155,{stay=6-10h} -> {station=other},True,False
+"R2 free, 14 kWh default",energy=7-13kWh + stay=6-10h,day_type=weekday,2,0.07602956705385427,0.9625668449197861,1.2083123040019055,{energy=7-13kWh + stay=6-10h} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",charging_share=mostly_idle + power=low + station=other,day_type=weekday,3,0.08130939809926083,0.9625,1.2082283934252387,{charging_share=mostly_idle + power=low + station=other} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",overnight=no + power=low + station=other,day_type=weekday,3,0.26019007391763466,0.9602494154325799,1.20540322960585,{overnight=no + power=low + station=other} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",station=other + stay=6-10h,day_type=weekday,2,0.19894403379091868,0.9602446483180428,1.2053972454363555,{station=other + stay=6-10h} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",arrival=morning + energy=7-13kWh + station=other,day_type=weekday,3,0.08067581837381203,0.9597989949748743,1.2048378158022348,{arrival=morning + energy=7-13kWh + station=other} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",energy=2-7kWh + power=low + station=other,day_type=weekday,3,0.10580781414994721,0.9597701149425287,1.2048015626333175,{energy=2-7kWh + power=low + station=other} -> {day_type=weekday},False,False
+"R2 free, 14 kWh default",arrival=morning + charging_share=partly_idle + user=unclaimed,station=other,3,0.056599788806758186,0.7423822714681441,1.202593245091229,{arrival=morning + charging_share=partly_idle + user=unclaimed} -> {station=other},False,True
+"R2 free, 14 kWh default",energy=7-13kWh + station=busy,charging_share=mostly_charging,2,0.057022175290390706,0.6026785714285714,1.2025634368791762,{energy=7-13kWh + station=busy} -> {charging_share=mostly_charging},False,False
+R3 paid,charging_share=mostly_charging + energy=under_2kWh + power=low,user=unclaimed,3,0.0664099446020808,0.9195509822263799,5.77234675102412,{charging_share=mostly_charging + energy=under_2kWh + power=low} -> {user=unclaimed},False,True
+R3 paid,energy=under_2kWh + power=low + stay=under_2h,user=unclaimed,3,0.059316308606945006,0.8401913875598085,5.274178506641342,{energy=under_2kWh + power=low + stay=under_2h} -> {user=unclaimed},False,True
+R3 paid,charging_share=mostly_charging + energy=under_2kWh,user=unclaimed,2,0.0664099446020808,0.8401709401709402,5.274050151149388,{charging_share=mostly_charging + energy=under_2kWh} -> {user=unclaimed},True,True
+R3 paid,user=unclaimed,energy=under_2kWh,1,0.15193892717200377,0.953774385072095,4.487529703699031,{user=unclaimed} -> {energy=under_2kWh},False,True
+R3 paid,energy=under_2kWh,user=unclaimed,1,0.15193892717200377,0.7148760330578512,4.487529703699031,{energy=under_2kWh} -> {user=unclaimed},True,True
+R3 paid,power=low + stay=under_2h,user=unclaimed,2,0.059316308606945006,0.6859375,4.305872296437659,{power=low + stay=under_2h} -> {user=unclaimed},True,True
+R3 paid,energy=over_21kWh,power=high,1,0.05647885420889069,0.7294938917975567,2.9518776890069534,{energy=over_21kWh} -> {power=high},False,False
+R3 paid,charging_share=mostly_charging + request=not_met + station=busy,stay=under_2h,3,0.06458586677476016,0.6065989847715736,2.8477253956831055,{charging_share=mostly_charging + request=not_met + station=busy} -> {stay=under_2h},True,False
+R3 paid,charging_share=mostly_charging + user=unclaimed,power=low,2,0.07147682745574922,1.0,2.4213970227384265,{charging_share=mostly_charging + user=unclaimed} -> {power=low},False,True
+R3 paid,user=unclaimed,power=low,1,0.14964194027834077,0.9393553859202715,2.2745523347606507,{user=unclaimed} -> {power=low},False,True
+R3 paid,request=not_met + stay=under_2h,charging_share=mostly_charging,2,0.11228212403729226,0.7948350071736012,2.2257184593612647,{request=not_met + stay=under_2h} -> {charging_share=mostly_charging},False,False
+R3 paid,stay=under_2h + user=claimed,charging_share=mostly_charging,2,0.1179570328334009,0.7871956717763752,2.204326586007171,{stay=under_2h + user=claimed} -> {charging_share=mostly_charging},False,True
+R3 paid,energy=under_2kWh,power=low,1,0.18788001621402514,0.8839796567069295,2.140465708911495,{energy=under_2kWh} -> {power=low},True,False
+R3 paid,stay=under_2h,charging_share=mostly_charging,1,0.14849344683150925,0.6971138598160481,1.9520770626176964,{stay=under_2h} -> {charging_share=mostly_charging},True,False
+R3 paid,request=not_met + station=busy + stay=6-10h,charging_share=mostly_idle,3,0.07870558032698284,0.7173645320197044,1.9511998902895378,{request=not_met + station=busy + stay=6-10h} -> {charging_share=mostly_idle},True,False
+R3 paid,request=not_met + stay=over_10h,charging_share=mostly_idle,2,0.06019456830158087,0.7110933758978453,1.9341426222050542,{request=not_met + stay=over_10h} -> {charging_share=mostly_idle},True,False
+R3 paid,arrival=morning + charging_share=mostly_idle,stay=6-10h,2,0.14308877178759627,0.7074148296593187,1.8444872835330695,{arrival=morning + charging_share=mostly_idle} -> {stay=6-10h},True,False
+R3 paid,request=not_met + stay=under_2h,energy=2-7kWh,2,0.09012295635724903,0.637972262075562,1.8226723457329606,{request=not_met + stay=under_2h} -> {energy=2-7kWh},False,False
+R3 paid,arrival=morning + power=medium + station=busy,charging_share=mostly_idle,3,0.0521551141737603,0.6695576756287944,1.8211673492571507,{arrival=morning + power=medium + station=busy} -> {charging_share=mostly_idle},True,False
+R3 paid,arrival=morning + energy=2-7kWh + power=medium,station=busy,3,0.051614646669369005,0.7332053742802302,1.7750909306666616,{arrival=morning + energy=2-7kWh + power=medium} -> {station=busy},True,False
+R3 paid,stay=under_2h + user=claimed,energy=2-7kWh,2,0.09309552763140116,0.6212804328223626,1.7749841665000212,{stay=under_2h + user=claimed} -> {energy=2-7kWh},False,True
+R3 paid,power=medium + station=busy,energy=2-7kWh,2,0.08910957978651533,0.6183778715424284,1.7666916144703773,{power=medium + station=busy} -> {energy=2-7kWh},False,False
+R3 paid,request=not_met + stay=6-10h,charging_share=mostly_idle,2,0.1903796784218349,0.6491591799124626,1.7656843405116265,{request=not_met + stay=6-10h} -> {charging_share=mostly_idle},True,False
+R3 paid,station=busy + stay=6-10h,arrival=morning,2,0.10464802053776516,0.7935450819672131,1.7612916933991134,{station=busy + stay=6-10h} -> {arrival=morning},False,False
+R3 paid,station=busy + stay=6-10h,charging_share=mostly_idle,2,0.08519119037967843,0.6460040983606558,1.7571026578343305,{station=busy + stay=6-10h} -> {charging_share=mostly_idle},False,False
+R3 paid,stay=over_10h,charging_share=mostly_idle,1,0.06593703553573842,0.6412614980289093,1.7442029940874522,{stay=over_10h} -> {charging_share=mostly_idle},True,False
+R3 paid,arrival=morning + charging_share=mostly_idle + station=busy,energy=2-7kWh,3,0.06107282799621673,0.6022651565622918,1.7206579516377232,{arrival=morning + charging_share=mostly_idle + station=busy} -> {energy=2-7kWh},True,False
+R3 paid,arrival=morning + energy=2-7kWh,charging_share=mostly_idle,2,0.10464802053776516,0.6291632818846465,1.71129637972373,{arrival=morning + energy=2-7kWh} -> {charging_share=mostly_idle},False,False
+R3 paid,arrival=evening,station=busy,1,0.06668017835427645,0.7004968062455642,1.6959034553560421,{arrival=evening} -> {station=busy},True,False
+R3 paid,arrival=morning + energy=7-13kWh,stay=6-10h,2,0.06208620456695041,0.6499292786421499,1.6946015822549063,{arrival=morning + energy=7-13kWh} -> {stay=6-10h},False,False
+R3 paid,charging_share=mostly_idle + energy=2-7kWh + station=busy,arrival=morning,3,0.06107282799621673,0.7564853556485356,1.679036772276147,{charging_share=mostly_idle + energy=2-7kWh + station=busy} -> {arrival=morning},False,False
+R3 paid,charging_share=mostly_idle + power=medium + station=busy,arrival=morning,3,0.0521551141737603,0.7487875848690592,1.6619513916976778,{charging_share=mostly_idle + power=medium + station=busy} -> {arrival=morning},True,False
+R3 paid,arrival=morning + power=medium + request=not_met,charging_share=mostly_idle,3,0.07674638562356438,0.60813704496788,1.6541059425973097,{arrival=morning + power=medium + request=not_met} -> {charging_share=mostly_idle},False,False
+R3 paid,arrival=morning + station=other,stay=6-10h,2,0.16004593973787326,0.6341006423982869,1.653330581077936,{arrival=morning + station=other} -> {stay=6-10h},False,False
+R3 paid,arrival=midday + stay=6-10h + user=claimed,charging_share=mostly_idle,3,0.060397243615727604,0.6077498300475866,1.6530527350908448,{arrival=midday + stay=6-10h + user=claimed} -> {charging_share=mostly_idle},False,True
+R3 paid,arrival=morning + day_type=weekday + power=medium,charging_share=mostly_idle,3,0.08032698284015674,0.6020253164556962,1.6374823105801573,{arrival=morning + day_type=weekday + power=medium} -> {charging_share=mostly_idle},False,False
+R3 paid,arrival=morning + power=low + request=not_met,stay=6-10h,3,0.07242264558843399,0.6269005847953216,1.6345574169702926,{arrival=morning + power=low + request=not_met} -> {stay=6-10h},False,False
+R3 paid,day_type=weekend,station=busy,1,0.07397648966355898,0.6738461538461538,1.631382199743338,{day_type=weekend} -> {station=busy},True,False
+R3 paid,charging_share=mostly_idle + request=not_met,stay=6-10h,2,0.1903796784218349,0.6177115300306883,1.610598215168971,{charging_share=mostly_idle + request=not_met} -> {stay=6-10h},False,False
+R3 paid,charging_share=mostly_idle + user=claimed,stay=6-10h,2,0.2008512363194163,0.6162935323383084,1.6069009803895793,{charging_share=mostly_idle + user=claimed} -> {stay=6-10h},False,True
+R3 paid,arrival=morning + day_type=weekday,stay=6-10h,2,0.2616538305634374,0.6141769743101808,1.6013823452068516,{arrival=morning + day_type=weekday} -> {stay=6-10h},False,False
+R3 paid,arrival=morning + user=claimed,stay=6-10h,2,0.23746790974192677,0.6082367191555633,1.585893943445596,{arrival=morning + user=claimed} -> {stay=6-10h},False,False
+R3 paid,charging_share=mostly_idle + day_type=weekday + station=other,stay=6-10h,3,0.12214565599243346,0.6077310924369749,1.5845755910255597,{charging_share=mostly_idle + day_type=weekday + station=other} -> {stay=6-10h},False,False
+R3 paid,arrival=morning + charging_share=mostly_idle + power=medium,station=busy,3,0.0521551141737603,0.6411960132890365,1.5523361774132023,{arrival=morning + charging_share=mostly_idle + power=medium} -> {station=busy},False,False
+R3 paid,stay=6-10h,arrival=morning,1,0.2646939602756384,0.6901532499559626,1.5318111269827799,{stay=6-10h} -> {arrival=morning},True,False
+R3 paid,energy=2-7kWh + stay=under_2h,station=busy,2,0.058573165788406975,0.6291727140783745,1.5232277582250735,{energy=2-7kWh + stay=under_2h} -> {station=busy},False,False
+R3 paid,arrival=morning + charging_share=mostly_charging + day_type=weekday,power=low,3,0.07026077557086881,0.6190476190476191,1.4989600616952163,{arrival=morning + charging_share=mostly_charging + day_type=weekday} -> {power=low},True,False
+R3 paid,charging_share=mostly_idle + power=medium,arrival=morning,2,0.08134035941089042,0.6417910447761194,1.4244700921841533,{charging_share=mostly_idle + power=medium} -> {arrival=morning},False,False
+R3 paid,charging_share=mostly_idle + station=busy,arrival=morning,2,0.10140521551141737,0.6417272338606241,1.4243284623789112,{charging_share=mostly_idle + station=busy} -> {arrival=morning},False,False
+R3 paid,day_type=weekday + energy=2-7kWh + station=busy,arrival=morning,3,0.08897446291041751,0.6250593260560038,1.3873336548629431,{day_type=weekday + energy=2-7kWh + station=busy} -> {arrival=morning},False,False
+R3 paid,day_type=weekday + stay=over_10h,arrival=morning,2,0.05587082826645048,0.6222723852520693,1.3811479751838551,{day_type=weekday + stay=over_10h} -> {arrival=morning},False,False
+R3 paid,day_type=weekday + power=medium + station=busy,arrival=morning,3,0.07276043777867856,0.6154285714285714,1.3659579718527086,{day_type=weekday + power=medium + station=busy} -> {arrival=morning},False,False
+R3 paid,arrival=midday + day_type=weekday,station=other,2,0.2179435211457911,0.8006949615289153,1.3641674517208797,{arrival=midday + day_type=weekday} -> {station=other},True,False
+R3 paid,charging_share=mostly_idle + energy=2-7kWh,arrival=morning,2,0.10464802053776516,0.6139516448672215,1.362679899133995,{charging_share=mostly_idle + energy=2-7kWh} -> {arrival=morning},True,False
+R3 paid,arrival=midday + stay=6-10h,station=other,2,0.0867450344548034,0.798011187072716,1.3595950265941923,{arrival=midday + stay=6-10h} -> {station=other},True,False
+R3 paid,charging_share=mostly_idle + day_type=weekday + request=not_met,arrival=morning,3,0.17646264018375896,0.6023985239852399,1.3370374796865379,{charging_share=mostly_idle + day_type=weekday + request=not_met} -> {arrival=morning},False,False
+R3 paid,power=medium + stay=under_2h,request=not_met,2,0.05404675043912985,0.97442143727162,1.332291346249263,{power=medium + stay=under_2h} -> {request=not_met},False,False
+R3 paid,charging_share=mostly_charging + stay=6-10h,station=other,2,0.057762464531820025,0.7709648331830479,1.3135153615073059,{charging_share=mostly_charging + stay=6-10h} -> {station=other},True,False
+R3 paid,energy=2-7kWh,request=not_met,1,0.32401026888258344,0.9256900212314225,1.2656626357165635,{energy=2-7kWh} -> {request=not_met},False,False
+R3 paid,arrival=midday,station=other,1,0.23348196189704093,0.7339137821193459,1.250390400889797,{arrival=midday} -> {station=other},False,False
+R3 paid,energy=7-13kWh + stay=6-10h,station=other,2,0.0729631130928253,0.7336956521739131,1.2500187665145328,{energy=7-13kWh + stay=6-10h} -> {station=other},True,False
+R3 paid,charging_share=mostly_idle + stay=over_10h,request=not_met,2,0.06019456830158087,0.9129098360655737,1.248188748701517,{charging_share=mostly_idle + stay=over_10h} -> {request=not_met},False,False
+R3 paid,charging_share=mostly_idle + power=high,request=not_met,2,0.07654371030941765,0.9122383252818035,1.2472706161852258,{charging_share=mostly_idle + power=high} -> {request=not_met},False,False
+R3 paid,charging_share=mostly_idle + stay=6-10h,request=not_met,2,0.1903796784218349,0.9113842173350583,1.2461028251425765,{charging_share=mostly_idle + stay=6-10h} -> {request=not_met},False,False
+R3 paid,power=high + stay=6-10h,station=other,2,0.06289690582353737,0.7267759562841531,1.2382294780062195,{power=high + stay=6-10h} -> {station=other},False,False
+R3 paid,day_type=weekday + request=met,station=other,2,0.06958519119037967,0.7243319268635724,1.2340655135168737,{day_type=weekday + request=met} -> {station=other},False,False
+R3 paid,power=medium,request=not_met,1,0.26037022024050804,0.9025761124121779,1.2340598204253703,{power=medium} -> {request=not_met},False,False
+R3 paid,charging_share=mostly_charging + day_type=weekday + power=low,station=other,3,0.10363464396703148,0.7239263803680981,1.2333745720774156,{charging_share=mostly_charging + day_type=weekday + power=low} -> {station=other},False,False
+R3 paid,charging_share=mostly_charging + day_type=weekday + stay=2-6h,station=other,3,0.07093635995135793,0.7216494845360825,1.2294953579768753,{charging_share=mostly_charging + day_type=weekday + stay=2-6h} -> {station=other},False,False
+R3 paid,day_type=weekday + power=low + stay=2-6h,station=other,3,0.07769220375624916,0.7205513784461153,1.2276244824769105,{day_type=weekday + power=low + stay=2-6h} -> {station=other},False,False
+R3 paid,charging_share=mostly_idle + energy=7-13kWh,request=not_met,2,0.06539656803134712,0.8938134810710988,1.222078990099243,{charging_share=mostly_idle + energy=7-13kWh} -> {request=not_met},False,False
+R3 paid,power=high + stay=under_2h,request=not_met,2,0.053506282934738546,0.8918918918918918,1.2194516704030836,{power=high + stay=under_2h} -> {request=not_met},False,False
+R3 paid,charging_share=mostly_charging + power=low + user=claimed,station=other,3,0.06168085393865694,0.7143974960876369,1.2171399329062156,{charging_share=mostly_charging + power=low + user=claimed} -> {station=other},False,True
+R3 paid,day_type=weekday + power=high + station=busy,request=not_met,3,0.06316713957573301,0.8845789971617787,1.2094530127460419,{day_type=weekday + power=high + station=busy} -> {request=not_met},False,False
+R3 paid,charging_share=partly_idle + stay=6-10h,station=other,2,0.05674908796108634,0.7094594594594595,1.208726855308347,{charging_share=partly_idle + stay=6-10h} -> {station=other},True,False
+R3 paid,arrival=morning + charging_share=mostly_idle,request=not_met,2,0.17848939332522631,0.8824315297261189,1.2065168578427872,{arrival=morning + charging_share=mostly_idle} -> {request=not_met},False,False
+R3 paid,charging_share=mostly_idle + overnight=no + power=high,station=other,3,0.05289825699229834,0.7047704770477048,1.2007380986717455,{charging_share=mostly_idle + overnight=no + power=high} -> {station=other},False,False
+R4 COVID period,energy=under_2kWh + power=low,user=unclaimed,2,0.07366007451991975,0.6177884615384616,7.458352741549109,{energy=under_2kWh + power=low} -> {user=unclaimed},False,True
+R4 COVID period,user=unclaimed,energy=under_2kWh,1,0.08053883634279163,0.972318339100346,6.305610938886817,{user=unclaimed} -> {energy=under_2kWh},False,True
+R4 COVID period,user=unclaimed,power=low,1,0.07451991974777873,0.8996539792387543,4.218941846188191,{user=unclaimed} -> {power=low},False,True
+R4 COVID period,energy=under_2kWh,power=low,1,0.11923187159644598,0.7732342007434945,3.626094255905984,{energy=under_2kWh} -> {power=low},True,False
+R4 COVID period,request=not_met + stay=6-10h,charging_share=mostly_idle,2,0.08713098308971051,0.7325301204819277,3.1788527243301563,{request=not_met + stay=6-10h} -> {charging_share=mostly_idle},True,False
+R4 COVID period,request=met,energy=over_21kWh,1,0.059042705646316994,0.6041055718475073,3.1271874483322746,{request=met} -> {energy=over_21kWh},False,False
+R4 COVID period,stay=6-10h,charging_share=mostly_idle,1,0.0937231298366294,0.639921722113503,2.7769737418582237,{stay=6-10h} -> {charging_share=mostly_idle},False,False
+R4 COVID period,request=not_met + station=busy + stay=6-10h,power=medium,3,0.05703640011464603,0.603030303030303,2.653181244984524,{request=not_met + station=busy + stay=6-10h} -> {power=medium},False,False
+R4 COVID period,charging_share=partly_idle + day_type=weekday + request=not_met,stay=2-6h,3,0.06620808254514188,0.6015625,2.30389853183315,{charging_share=partly_idle + day_type=weekday + request=not_met} -> {stay=2-6h},False,False
+R4 COVID period,power=medium + request=not_met,energy=2-7kWh,2,0.14531384350816853,0.7081005586592178,2.067416610177415,{power=medium + request=not_met} -> {energy=2-7kWh},False,False
+R4 COVID period,power=medium,energy=2-7kWh,1,0.14932645457151048,0.6569987389659522,1.9182164018846921,{power=medium} -> {energy=2-7kWh},False,False
+R4 COVID period,power=low + user=claimed,energy=2-7kWh,2,0.08885067354542849,0.6404958677685949,1.8700335419620313,{power=low + user=claimed} -> {energy=2-7kWh},False,True
+R4 COVID period,power=low + request=not_met,energy=2-7kWh,2,0.08684436801375753,0.6378947368421053,1.8624391103281215,{power=low + request=not_met} -> {energy=2-7kWh},False,False
+R4 COVID period,charging_share=mostly_idle + request=not_met,energy=2-7kWh,2,0.12009171682430496,0.6216617210682492,1.8150441379139093,{charging_share=mostly_idle + request=not_met} -> {energy=2-7kWh},False,False
+R4 COVID period,charging_share=mostly_idle + user=claimed,energy=2-7kWh,2,0.12152479220406993,0.6100719424460432,1.7812058637608743,{charging_share=mostly_idle + user=claimed} -> {energy=2-7kWh},False,True
+R4 COVID period,arrival=evening + station=busy,stay=under_2h,2,0.13843508168529664,0.8813868613138687,1.5689585505735142,{arrival=evening + station=busy} -> {stay=under_2h},False,False
+R4 COVID period,arrival=afternoon + charging_share=mostly_charging,stay=under_2h,2,0.05187732874749212,0.8578199052132701,1.52700696392301,{arrival=afternoon + charging_share=mostly_charging} -> {stay=under_2h},True,False
+R4 COVID period,arrival=evening,stay=under_2h,1,0.14932645457151048,0.8178963893249609,1.4559390318136676,{arrival=evening} -> {stay=under_2h},False,False
+R4 COVID period,energy=over_21kWh + station=busy,stay=under_2h,2,0.14388076812840356,0.814935064935065,1.4506675722236948,{energy=over_21kWh + station=busy} -> {stay=under_2h},False,False
+R4 COVID period,charging_share=mostly_charging + request=not_met + station=busy,stay=under_2h,3,0.10948695901404414,0.809322033898305,1.440675804219993,{charging_share=mostly_charging + request=not_met + station=busy} -> {stay=under_2h},True,False
+R4 COVID period,energy=14-21kWh + request=not_met + station=busy,stay=under_2h,3,0.05474347950702207,0.799163179916318,1.4225920075143028,{energy=14-21kWh + request=not_met + station=busy} -> {stay=under_2h},False,False
+R4 COVID period,charging_share=mostly_charging + request=not_met,stay=under_2h,2,0.1352823158498137,0.7588424437299036,1.3508169827416499,{charging_share=mostly_charging + request=not_met} -> {stay=under_2h},False,False
+R4 COVID period,energy=over_21kWh,stay=under_2h,1,0.14388076812840356,0.7448071216617211,1.3258326772845639,{energy=over_21kWh} -> {stay=under_2h},False,False
+R4 COVID period,arrival=morning + stay=6-10h,day_type=weekday,2,0.07423330467182573,0.9885496183206106,1.2937170361292611,{arrival=morning + stay=6-10h} -> {day_type=weekday},False,False
+R4 COVID period,day_type=weekend,stay=under_2h,1,0.14932645457151048,0.7186206896551725,1.2792181562280085,{day_type=weekend} -> {stay=under_2h},False,False
+R4 COVID period,arrival=afternoon,stay=under_2h,1,0.18114072800229292,0.7181818181818181,1.2784369202226344,{arrival=afternoon} -> {stay=under_2h},False,False
+R4 COVID period,arrival=morning + charging_share=mostly_idle,day_type=weekday,2,0.08770421324161651,0.9652996845425867,1.26328979721271,{arrival=morning + charging_share=mostly_idle} -> {day_type=weekday},False,False
+R4 COVID period,arrival=morning + power=medium,day_type=weekday,2,0.0768128403554027,0.9640287769784173,1.2616265577185664,{arrival=morning + power=medium} -> {day_type=weekday},False,False
+R4 COVID period,charging_share=mostly_charging,stay=under_2h,1,0.15505875609057038,0.7081151832460734,1.2605172828293623,{charging_share=mostly_charging} -> {stay=under_2h},False,False
+R4 COVID period,energy=14-21kWh + request=not_met,stay=under_2h,2,0.05474347950702207,0.7022058823529411,1.2499981242496998,{energy=14-21kWh + request=not_met} -> {stay=under_2h},False,False
+R4 COVID period,arrival=morning + stay=2-6h,day_type=weekday,2,0.07910576096302666,0.9419795221843003,1.2327706500003839,{arrival=morning + stay=2-6h} -> {day_type=weekday},False,False
+R4 COVID period,energy=2-7kWh + power=medium + stay=2-6h,day_type=weekday,3,0.055030094582975066,0.9365853658536585,1.2257113058752491,{energy=2-7kWh + power=medium + stay=2-6h} -> {day_type=weekday},False,False
+R4 COVID period,charging_share=mostly_idle + energy=2-7kWh + power=medium,day_type=weekday,3,0.05359701920321009,0.9349999999999999,1.2236365341335331,{charging_share=mostly_idle + energy=2-7kWh + power=medium} -> {day_type=weekday},False,False
+R4 COVID period,arrival=morning + energy=2-7kWh,day_type=weekday,2,0.08913728862138148,0.9311377245508982,1.218581965850744,{arrival=morning + energy=2-7kWh} -> {day_type=weekday},False,False
+R4 COVID period,energy=2-7kWh + stay=6-10h,day_type=weekday,2,0.061335626253940956,0.9304347826086956,1.2176620242017024,{energy=2-7kWh + stay=6-10h} -> {day_type=weekday},False,False
+R4 COVID period,arrival=afternoon + energy=2-7kWh,request=not_met,2,0.09716251074806535,0.9912280701754387,1.2100751353541306,{arrival=afternoon + energy=2-7kWh} -> {request=not_met},False,False
+R4 COVID period,charging_share=mostly_idle + stay=6-10h,day_type=weekday,2,0.08655775293780453,0.9235474006116208,1.2086484923983287,{charging_share=mostly_idle + stay=6-10h} -> {day_type=weekday},False,False
+R4 COVID period,charging_share=mostly_idle + overnight=no + power=medium,day_type=weekday,3,0.07767268558326168,0.9217687074829932,1.206320712831269,{charging_share=mostly_idle + overnight=no + power=medium} -> {day_type=weekday},False,False
+R4 COVID period,charging_share=mostly_idle + energy=2-7kWh,request=not_met,2,0.12009171682430496,0.9858823529411764,1.2035491705429546,{charging_share=mostly_idle + energy=2-7kWh} -> {request=not_met},False,False
+R4 COVID period,charging_share=mostly_charging + power=high + stay=under_2h,request=not_met,3,0.057896245342505016,0.9853658536585366,1.2029186366041407,{charging_share=mostly_charging + power=high + stay=under_2h} -> {request=not_met},False,False
+R4 COVID period,energy=2-7kWh + power=high,request=not_met,2,0.05101748351963313,0.9834254143646408,1.2005497798174358,{energy=2-7kWh + power=high} -> {request=not_met},False,False
+R4 COVID period,energy=14-21kWh + station=busy,stay=under_2h,2,0.058182860418458014,0.6744186046511629,1.2005339345040342,{energy=14-21kWh + station=busy} -> {stay=under_2h},False,False
+R4 COVID period,charging_share=mostly_charging + day_type=weekday + energy=2-7kWh,request=not_met,3,0.06792777300085985,0.9834024896265561,1.2005217936693682,{charging_share=mostly_charging + day_type=weekday + energy=2-7kWh} -> {request=not_met},False,False
+R4 COVID period,energy=2-7kWh + stay=2-6h,request=not_met,2,0.11865864144453998,0.9833729216152018,1.2004856975211473,{energy=2-7kWh + stay=2-6h} -> {request=not_met},False,False
