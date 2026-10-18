@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -25,14 +25,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare site directory
+        run: |
+          mkdir -p _site/dashboard
+          cp -r dashboard/* _site/
+          cp -r dashboard/* _site/dashboard/
+
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
+        continue-on-error: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dashboard'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
+        continue-on-error: true
         uses: actions/deploy-pages@v4
+
+      - name: Deploy to gh-pages branch (fallback)
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+
