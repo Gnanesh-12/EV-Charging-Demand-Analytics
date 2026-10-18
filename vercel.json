@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "outputDirectory": "dashboard",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/dashboard/(.*)",
+      "destination": "/$1"
+    }
+  ]
+}
