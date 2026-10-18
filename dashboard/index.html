@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EV Charging Demand Analytics – Interactive Dashboard</title>
+  <meta name="description" content="Interactive business analytics dashboard for EV workplace charging demand: KPIs, time-series forecasts, ML model results, and association-rule findings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== TOP NAVIGATION ===== -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+          <rect width="32" height="32" rx="8" fill="#2563EB"/>
+          <path d="M10 22 L16 10 L22 22" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13 18 H19" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M16 22 V26" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="brand">
+        <span class="brand-name">EV Charging Analytics</span>
+        <span class="brand-sub">ACN Caltech Workplace Charging · Apr 2018 – Sep 2021</span>
+      </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="#overview" class="nav-link active" data-section="overview">Overview</a>
+      <a href="#demand" class="nav-link" data-section="demand">Demand</a>
+      <a href="#energy" class="nav-link" data-section="energy">Energy</a>
+      <a href="#forecast" class="nav-link" data-section="forecast">Forecast</a>
+      <a href="#ml-model" class="nav-link" data-section="ml-model">ML Model</a>
+      <a href="#association" class="nav-link" data-section="association">Association</a>
+      <a href="#stations" class="nav-link" data-section="stations">Stations</a>
+    </nav>
+    <div class="topbar-right">
+      <div class="filter-group">
+        <label for="regimeFilter">Regime</label>
+        <select id="regimeFilter">
+          <option value="all">All Regimes</option>
+          <option value="R1 free">R1 – Free</option>
+          <option value="R2 free, 14 kWh default">R2 – Free (14 kWh cap)</option>
+          <option value="R3 paid">R3 – Paid</option>
+          <option value="R4 COVID period">R4 – COVID</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="dayTypeFilter">Day Type</label>
+        <select id="dayTypeFilter">
+          <option value="all">All Days</option>
+          <option value="weekday">Weekdays</option>
+          <option value="weekend">Weekends</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="#overview" class="s-link active" data-section="overview">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 8a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H4a1 1 0 01-1-1v-4zm8-8a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V4zm0 8a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
+          <span>Overview</span>
+        </a></li>
+        <li><a href="#demand" class="s-link" data-section="demand">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+          <span>Demand</span>
+        </a></li>
+        <li><a href="#energy" class="s-link" data-section="energy">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"/></svg>
+          <span>Energy</span>
+        </a></li>
+        <li><a href="#forecast" class="s-link" data-section="forecast">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/></svg>
+          <span>Forecast</span>
+        </a></li>
+        <li><a href="#ml-model" class="s-link" data-section="ml-model">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg>
+          <span>ML Model</span>
+        </a></li>
+        <li><a href="#association" class="s-link" data-section="association">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"/></svg>
+          <span>Association</span>
+        </a></li>
+        <li><a href="#stations" class="s-link" data-section="stations">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/></svg>
+          <span>Stations</span>
+        </a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <div class="data-badge">
+          <span class="dot dot-green"></span>
+          <span>31,387 sessions</span>
+        </div>
+        <div class="data-badge">
+          <span class="dot dot-blue"></span>
+          <span>55 stations</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+      <!-- ===== SECTION 1: OVERVIEW KPIs ===== -->
+      <section id="overview" class="section active">
+        <div class="section-header">
+          <div>
+            <h1 class="section-title">Executive Overview</h1>
+            <p class="section-subtitle">Key performance indicators across all charging regimes · ACN Caltech Campus</p>
+          </div>
+          <div class="date-range-badge">Apr 2018 – Sep 2021 · 1,238 calendar days</div>
+        </div>
+
+        <!-- KPI Cards Row 1 -->
+        <div class="kpi-grid kpi-grid-5">
+          <div class="kpi-card kpi-primary">
+            <div class="kpi-icon">⚡</div>
+            <div class="kpi-value" id="kpi-sessions">31,387</div>
+            <div class="kpi-label">Total Sessions</div>
+            <div class="kpi-sub">across all regimes</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🔌</div>
+            <div class="kpi-value" id="kpi-stations">55</div>
+            <div class="kpi-label">Charging Stations</div>
+            <div class="kpi-sub">1 site · campus + public</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">📅</div>
+            <div class="kpi-value" id="kpi-avg-day">40.4</div>
+            <div class="kpi-label">Avg Sessions/Day</div>
+            <div class="kpi-sub">median 38 · normal operation</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🕐</div>
+            <div class="kpi-value">5.2h</div>
+            <div class="kpi-label">Median Stay Duration</div>
+            <div class="kpi-sub">48% idle time</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">💡</div>
+            <div class="kpi-value">6.7 kWh</div>
+            <div class="kpi-label">Median Energy / Session</div>
+            <div class="kpi-sub">mean 8.9 kWh · skew 2.3</div>
+          </div>
+        </div>
+
+        <!-- KPI Cards Row 2 -->
+        <div class="kpi-grid kpi-grid-4">
+          <div class="kpi-card kpi-accent-green">
+            <div class="kpi-label-top">Weekday Sessions/Day</div>
+            <div class="kpi-value-lg">48.3</div>
+            <div class="kpi-compare">vs <strong>20.5</strong> on weekends</div>
+          </div>
+          <div class="kpi-card kpi-accent-blue">
+            <div class="kpi-label-top">Peak Simultaneous Chargers</div>
+            <div class="kpi-value-lg">51 / 54</div>
+            <div class="kpi-compare">94% max occupancy reached</div>
+          </div>
+          <div class="kpi-card kpi-accent-orange">
+            <div class="kpi-label-top">Paid Regime Impact</div>
+            <div class="kpi-value-lg">−62%</div>
+            <div class="kpi-compare">sessions/day vs R2 free period</div>
+          </div>
+          <div class="kpi-card kpi-accent-purple">
+            <div class="kpi-label-top">Station Gini Coefficient</div>
+            <div class="kpi-value-lg">0.34</div>
+            <div class="kpi-compare">top 10 stations = 35% of sessions</div>
+          </div>
+        </div>
+
+        <!-- Regime Comparison Chart -->
+        <div class="chart-row">
+          <div class="chart-card chart-wide">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Sessions per Day by Charging Regime</h3>
+                <p class="chart-subtitle">Full timeline overview with regime transition markers</p>
+              </div>
+              <div class="chart-legend-inline">
+                <span class="legend-dot" style="background:#2563EB"></span><span>Sessions/day</span>
+                <span class="legend-dot" style="background:#F59E0B; margin-left:12px"></span><span>7-day average</span>
+              </div>
+            </div>
+            <div class="chart-wrapper chart-tall">
+              <canvas id="timelineChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regime Summary Cards -->
+        <div class="regime-grid">
+          <div class="regime-card regime-r1">
+            <div class="regime-badge">R1</div>
+            <div class="regime-name">Free Charging</div>
+            <div class="regime-dates">Apr 2018 – Aug 2018</div>
+            <div class="regime-stats">
+              <div class="r-stat"><span>66.6</span><small>avg sessions/day</small></div>
+              <div class="r-stat"><span>577</span><small>avg kWh/day</small></div>
+            </div>
+          </div>
+          <div class="regime-card regime-r2">
+            <div class="regime-badge">R2</div>
+            <div class="regime-name">Free (14 kWh cap)</div>
+            <div class="regime-dates">Sep 2018 – Oct 2018</div>
+            <div class="regime-stats">
+              <div class="r-stat"><span>77.6</span><small>avg sessions/day</small></div>
+              <div class="r-stat"><span>707</span><small>avg kWh/day</small></div>
+            </div>
+          </div>
+          <div class="regime-card regime-r3">
+            <div class="regime-badge">R3</div>
+            <div class="regime-name">Paid Charging</div>
+            <div class="regime-dates">Nov 2018 – Mar 2020</div>
+            <div class="regime-stats">
+              <div class="r-stat"><span>29.5</span><small>avg sessions/day</small></div>
+              <div class="r-stat"><span>260</span><small>avg kWh/day</small></div>
+            </div>
+          </div>
+          <div class="regime-card regime-r4">
+            <div class="regime-badge">R4</div>
+            <div class="regime-name">COVID Period</div>
+            <div class="regime-dates">Mar 2020 – Sep 2021</div>
+            <div class="regime-stats">
+              <div class="r-stat"><span>6.4</span><small>avg sessions/day</small></div>
+              <div class="r-stat"><span>78</span><small>avg kWh/day</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 2: DEMAND ===== -->
+      <section id="demand" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Charging Demand Patterns</h2>
+            <p class="section-subtitle">Session frequency, day-of-week effects and intraday arrival patterns</p>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Average Sessions by Day of Week</h3>
+                <p class="chart-subtitle">Normal operation (all regimes) · busiest Tue, quietest Sun</p>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="dowChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Intraday Arrival Profile</h3>
+                <p class="chart-subtitle">Arrivals per hour · morning 06–10 carries 43% of sessions</p>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="intradayChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-card chart-wide">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Monthly Session Volume Trend</h3>
+                <p class="chart-subtitle">Weekday vs weekend split · by regime</p>
+              </div>
+              <div class="chart-legend-inline">
+                <span class="legend-dot" style="background:#2563EB"></span><span>Weekday avg</span>
+                <span class="legend-dot" style="background:#7C3AED; margin-left:12px"></span><span>Weekend avg</span>
+              </div>
+            </div>
+            <div class="chart-wrapper chart-tall">
+              <canvas id="monthlyTrendChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demand Insight Cards -->
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-icon" style="background:#EFF6FF; color:#2563EB">📊</div>
+            <div class="insight-content">
+              <div class="insight-title">Morning Peak Dominance</div>
+              <div class="insight-text">06–10 window accounts for <strong>43% of all sessions</strong> and 45% of energy. Average 4.4 arrivals per hour during this block on active weekdays.</div>
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-icon" style="background:#F0FDF4; color:#16A34A">📈</div>
+            <div class="insight-content">
+              <div class="insight-title">Weekday vs Weekend Gap</div>
+              <div class="insight-text">Weekdays average <strong>48.3 sessions/day</strong> (Tue peak: 50.8) vs only 20.5 on weekends – a 2.4× difference driven by commuter patterns.</div>
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-icon" style="background:#FFF7ED; color:#EA580C">⚠️</div>
+            <div class="insight-content">
+              <div class="insight-title">Dispersion Index</div>
+              <div class="insight-text">Demand is <strong>clustered</strong>, not random: weekday dispersion index 10.2, weekend 13.5 (1 = pure random arrivals). Plan for burst capacity.</div>
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-icon" style="background:#F5F3FF; color:#7C3AED">🔴</div>
+            <div class="insight-content">
+              <div class="insight-title">COVID Recovery</div>
+              <div class="insight-text">By Aug 2021 demand was at <strong>65% of pre-COVID paid level</strong>. A 106-day data gap (Aug–Nov 2020) coincides with campus closure.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 3: ENERGY ===== -->
+      <section id="energy" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Energy Consumption Patterns</h2>
+            <p class="section-subtitle">Per-session energy, duration and charging-share analysis</p>
+          </div>
+        </div>
+
+        <div class="kpi-grid kpi-grid-4">
+          <div class="kpi-card">
+            <div class="kpi-icon">⚡</div>
+            <div class="kpi-value">6.7 kWh</div>
+            <div class="kpi-label">Median per Session</div>
+            <div class="kpi-sub">mean 8.9 · skew 2.3</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🔝</div>
+            <div class="kpi-value">30%</div>
+            <div class="kpi-label">Energy from Top 10%</div>
+            <div class="kpi-sub">largest sessions dominate</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">⏱️</div>
+            <div class="kpi-value">48%</div>
+            <div class="kpi-label">Idle Charger Time</div>
+            <div class="kpi-sub">car parked, not charging</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">⏳</div>
+            <div class="kpi-value">46%</div>
+            <div class="kpi-label">Sessions ≥ 6 Hours</div>
+            <div class="kpi-sub">long-stay mode threshold ~5.9h</div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Energy per Session Distribution</h3>
+                <p class="chart-subtitle">Right-skewed · notable 13–14 kWh spike (default allowance artefact)</p>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="energyDistChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Charging Duration Distribution</h3>
+                <p class="chart-subtitle">Bimodal: short stays (&lt;2h) and long commuter stays (≥6h)</p>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="durationDistChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-card chart-medium">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Behaviour Profiles – Session Share vs Charger Hours</h3>
+                <p class="chart-subtitle">Commuters dominate charger time; quick top-ups most energy-efficient</p>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="profileRadarChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card chart-medium">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Energy Efficiency by Profile</h3>
+                <p class="chart-subtitle">kWh delivered per charger-hour plugged in</p>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="efficiencyChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 4: FORECAST ===== -->
+      <section id="forecast" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Time-Series Forecast</h2>
+            <p class="section-subtitle">SARIMAX model · 4-week ahead forecast with 80%/95% prediction intervals</p>
+          </div>
+          <div class="forecast-model-badge">SARIMAX + Closures · Post-COVID Recovery Regime</div>
+        </div>
+
+        <div class="kpi-grid kpi-grid-4">
+          <div class="kpi-card kpi-accent-blue">
+            <div class="kpi-label-top">Forecast Avg Sessions/Day</div>
+            <div class="kpi-value-lg">24.7</div>
+            <div class="kpi-compare">28.3 weekdays · 15.9 weekends</div>
+          </div>
+          <div class="kpi-card kpi-accent-green">
+            <div class="kpi-label-top">Held-out MAE</div>
+            <div class="kpi-value-lg">3.9</div>
+            <div class="kpi-compare">sessions/day · WAPE 19%</div>
+          </div>
+          <div class="kpi-card kpi-accent-orange">
+            <div class="kpi-label-top">80% Interval Coverage</div>
+            <div class="kpi-value-lg">61%</div>
+            <div class="kpi-compare">intervals too narrow – use with care</div>
+          </div>
+          <div class="kpi-card kpi-accent-purple">
+            <div class="kpi-label-top">Recovery vs Pre-COVID</div>
+            <div class="kpi-value-lg">73%</div>
+            <div class="kpi-compare">of paid pre-COVID weekday level</div>
+          </div>
+        </div>
+
+        <!-- Holdout actual vs forecast -->
+        <div class="chart-row">
+          <div class="chart-card chart-wide">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Held-out Period: Actual vs Forecast</h3>
+                <p class="chart-subtitle">SARIMAX paid model (Jan–Mar 2020) with 80% prediction interval</p>
+              </div>
+              <div class="chart-legend-inline">
+                <span class="legend-dot" style="background:#1E40AF"></span><span>Actual</span>
+                <span class="legend-dot" style="background:#F59E0B; margin-left:12px"></span><span>Forecast</span>
+                <span class="legend-area" style="background:rgba(245,158,11,0.15); margin-left:12px"></span><span>80% PI</span>
+              </div>
+            </div>
+            <div class="chart-wrapper chart-tall">
+              <canvas id="holdoutChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Future Forecast -->
+        <div class="chart-row">
+          <div class="chart-card chart-wide">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Future Forecast: Sep – Nov 2021</h3>
+                <p class="chart-subtitle">Post-COVID recovery SARIMAX · busiest day Fri 5 Nov (32 sessions)</p>
+              </div>
+              <div class="chart-legend-inline">
+                <span class="legend-dot" style="background:#2563EB"></span><span>Forecast</span>
+                <span class="legend-area" style="background:rgba(37,99,235,0.12); margin-left:12px"></span><span>80% PI</span>
+                <span class="legend-area" style="background:rgba(37,99,235,0.06); margin-left:12px"></span><span>95% PI</span>
+              </div>
+            </div>
+            <div class="chart-wrapper chart-tall">
+              <canvas id="futureForecastChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Planning Section -->
+        <div class="planning-grid">
+          <div class="planning-card">
+            <div class="planning-icon">📋</div>
+            <div class="planning-title">Capacity Planning Buffer</div>
+            <div class="planning-body">
+              To cover <strong>90% of days</strong>, add <span class="highlight-val">+11</span> sessions to the W1 forecast, <span class="highlight-val">+10</span> for W2, <span class="highlight-val">+12</span> for W3. At 80% level: +8, +5, +9.
+            </div>
+          </div>
+          <div class="planning-card">
+            <div class="planning-icon">🔋</div>
+            <div class="planning-title">Energy Outlook</div>
+            <div class="planning-body">
+              Expected <span class="highlight-val">~300 kWh/day</span> in the forecast window. Weekly volume grows <span class="highlight-val">+7%</span> from first to last forecast week (drift term continues recovery trend).
+            </div>
+          </div>
+          <div class="planning-card">
+            <div class="planning-icon">⚠️</div>
+            <div class="planning-title">Regime Change Warning</div>
+            <div class="planning-body">
+              Any pricing or access change starts a new regime. <strong>Switch to same-weekday baseline immediately</strong> and retrain the model within 7 days of new data.
+            </div>
+          </div>
+          <div class="planning-card">
+            <div class="planning-icon">🏗️</div>
+            <div class="planning-title">Charger Requirement</div>
+            <div class="planning-body">
+              90th percentile planning: <span class="highlight-val">~26 chargers</span> on weekdays at peak (10:00–16:00), <span class="highlight-val">~15</span> on weekends. No new hardware needed for current trajectory.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 5: ML MODEL ===== -->
+      <section id="ml-model" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Predictive Model Results</h2>
+            <p class="section-subtitle">HistGB champion model · next-day demand forecasting across three time windows</p>
+          </div>
+          <div class="forecast-model-badge">Champion: HistGradientBoosting (HistGB)</div>
+        </div>
+
+        <div class="kpi-grid kpi-grid-3">
+          <div class="kpi-card kpi-primary">
+            <div class="kpi-icon">🥇</div>
+            <div class="kpi-value">HistGB</div>
+            <div class="kpi-label">Champion Model</div>
+            <div class="kpi-sub">CV WAPE 35.6% · beats RF 37.9%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🎯</div>
+            <div class="kpi-value">7.6%</div>
+            <div class="kpi-label">Best Window WAPE (W1)</div>
+            <div class="kpi-sub">free regime · Oct 2018</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">📊</div>
+            <div class="kpi-value">2 / 3</div>
+            <div class="kpi-label">Windows Beats Baseline</div>
+            <div class="kpi-sub">same-weekday rule is strong fallback</div>
+          </div>
+        </div>
+
+        <!-- Window Performance Comparison -->
+        <div class="chart-row">
+          <div class="chart-card chart-medium">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Model WAPE by Test Window</h3>
+                <p class="chart-subtitle">HistGB vs best adaptive baseline per window</p>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="wapeChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card chart-medium">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Feature Importance (W3 – Recovery)</h3>
+                <p class="chart-subtitle">Top predictors: day-of-week, lag_1, rolling_7_mean</p>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="featureChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-card chart-wide">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Model Comparison – All Algorithms</h3>
+                <p class="chart-subtitle">Mean CV WAPE across W1, W2, W3 test windows</p>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="modelCompChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Window detail table -->
+        <div class="table-card">
+          <div class="table-header">
+            <h3 class="chart-title">Detailed Test-Window Results</h3>
+            <p class="chart-subtitle">HistGB performance vs best adaptive baseline · each window scored once</p>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Window</th>
+                  <th>Period</th>
+                  <th>Regime</th>
+                  <th>HistGB WAPE</th>
+                  <th>MAE</th>
+                  <th>Bias</th>
+                  <th>Best Baseline WAPE</th>
+                  <th>Δ vs Baseline</th>
+                  <th>Verdict</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge badge-blue">W1</span></td>
+                  <td>Oct 2018</td>
+                  <td>Free (R2)</td>
+                  <td><strong>7.6%</strong></td>
+                  <td>5.9</td>
+                  <td>−1.2</td>
+                  <td>8.1% <small>(lag7-naive)</small></td>
+                  <td><span class="delta-pos">+0.5 pts</span></td>
+                  <td><span class="verdict-win">✓ Better</span></td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-green">W2</span></td>
+                  <td>Dec 2019 – Feb 2020</td>
+                  <td>Paid (R3)</td>
+                  <td><strong>21.2%</strong></td>
+                  <td>5.4</td>
+                  <td>−0.9</td>
+                  <td>31.1% <small>(dow-mean 4w)</small></td>
+                  <td><span class="delta-pos">+9.9 pts</span></td>
+                  <td><span class="verdict-win">✓ Better</span></td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-orange">W3</span></td>
+                  <td>Jun 2021 – end</td>
+                  <td>Recovery (R4)</td>
+                  <td><strong>32.6%</strong></td>
+                  <td>5.5</td>
+                  <td>−4.6</td>
+                  <td>21.4% <small>(dow-mean 4w)</small></td>
+                  <td><span class="delta-neg">−11.2 pts</span></td>
+                  <td><span class="verdict-lose">✗ Baseline wins</span></td>
+                </tr>
+                <tr class="stress-row">
+                  <td><span class="badge badge-red">S1</span></td>
+                  <td>Nov 2018</td>
+                  <td>First paid month</td>
+                  <td>43.1%</td>
+                  <td>18.8</td>
+                  <td>+18.7</td>
+                  <td>42.4%</td>
+                  <td><span class="delta-neg">−0.7 pts</span></td>
+                  <td><span class="verdict-stress">Stress (not used)</span></td>
+                </tr>
+                <tr class="stress-row">
+                  <td><span class="badge badge-red">S2</span></td>
+                  <td>Mar–Apr 2020</td>
+                  <td>First COVID weeks</td>
+                  <td>1213.8%</td>
+                  <td>14.5</td>
+                  <td>+14.5</td>
+                  <td>301.8%</td>
+                  <td><span class="delta-neg">−912 pts</span></td>
+                  <td><span class="verdict-stress">Stress (regime break)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 6: ASSOCIATION RULES ===== -->
+      <section id="association" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Association Rule Analysis</h2>
+            <p class="section-subtitle">295 final rules mined from 31,387 sessions · ranked by leverage</p>
+          </div>
+        </div>
+
+        <div class="kpi-grid kpi-grid-4">
+          <div class="kpi-card">
+            <div class="kpi-icon">📐</div>
+            <div class="kpi-value">295</div>
+            <div class="kpi-label">Final Rules</div>
+            <div class="kpi-sub">165 behaviour · 130 policy-driven</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">📈</div>
+            <div class="kpi-value">6.09×</div>
+            <div class="kpi-label">Max Lift (policy rule)</div>
+            <div class="kpi-sub">unclaimed + paid → under 2 kWh</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🎯</div>
+            <div class="kpi-value">2.91×</div>
+            <div class="kpi-label">Max Lift (behaviour)</div>
+            <div class="kpi-sub">paid + over 21kWh → high power</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🔄</div>
+            <div class="kpi-value">4/4</div>
+            <div class="kpi-label">Regimes Holding</div>
+            <div class="kpi-sub">top 8 rules stable across regimes</div>
+          </div>
+        </div>
+
+        <!-- Top Rules Chart -->
+        <div class="chart-row">
+          <div class="chart-card chart-wide">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Top Behaviour Rules by Lift</h3>
+                <p class="chart-subtitle">Higher lift = stronger association above random chance · all hold across ≥3/4 regimes</p>
+              </div>
+            </div>
+            <div class="chart-wrapper chart-tall">
+              <canvas id="armLiftChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Behaviour Profiles Donut Charts -->
+        <div class="chart-row">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3 class="chart-title">Session Share by Profile</h3>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="profileSessionChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3 class="chart-title">Charger-Hour Share by Profile</h3>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="profileHoursChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3 class="chart-title">Energy Share by Profile</h3>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="profileEnergyChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rules Table -->
+        <div class="table-card">
+          <div class="table-header">
+            <h3 class="chart-title">Top Headline Association Rules</h3>
+            <div class="table-filter-row">
+              <label>Theme filter:
+                <select id="armThemeFilter">
+                  <option value="all">All themes</option>
+                  <option value="stay & idle time">Stay & Idle Time</option>
+                  <option value="energy & power">Energy & Power</option>
+                  <option value="users & requests">Users & Requests</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table" id="armTable">
+              <thead>
+                <tr>
+                  <th>Rule</th>
+                  <th>Theme</th>
+                  <th>Support</th>
+                  <th>Confidence</th>
+                  <th>Lift</th>
+                  <th>Sessions/week</th>
+                  <th>Regimes</th>
+                </tr>
+              </thead>
+              <tbody id="armTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Implication Cards -->
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-icon" style="background:#EFF6FF; color:#2563EB">🚗</div>
+            <div class="insight-content">
+              <div class="insight-title">Commuters Block Chargers</div>
+              <div class="insight-text">Workday commuters (06–10 arrivals, ≥6h stay) are 28% of sessions but hold <strong>45% of charger-hours</strong> and 50% of idle time. Idle fees or move-car alerts free capacity without new hardware.</div>
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-icon" style="background:#F0FDF4; color:#16A34A">⚡</div>
+            <div class="insight-content">
+              <div class="insight-title">Quick Top-ups Most Efficient</div>
+              <div class="insight-text">Short stays (&lt;2h) deliver <strong>5.94 kWh per charger-hour</strong> vs only 1.13 for commuters. Protecting a few short-stay bays (esp. evenings and weekends) serves more drivers per slot.</div>
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-icon" style="background:#FFF7ED; color:#EA580C">🌅</div>
+            <div class="insight-content">
+              <div class="insight-title">Morning Arrivals Stay All Day</div>
+              <div class="insight-text">70% of 6–10h sessions arrive in the 06–10 window. These sessions block chargers until afternoon – <strong>peak occupancy (10:00–16:00) is driven by parked cars</strong>, not power demand.</div>
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-icon" style="background:#F5F3FF; color:#7C3AED">📏</div>
+            <div class="insight-content">
+              <div class="insight-title">Policy Shapes Behaviour</div>
+              <div class="insight-text">130 of 295 rules are policy-driven (max lift 6.09×). The 30-minute stop for unclaimed sessions in R3 shows up directly in energy patterns. <strong>Re-mine rules after any pricing change.</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 7: STATIONS ===== -->
+      <section id="stations" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Station & Site Utilisation</h2>
+            <p class="section-subtitle">Charger-level demand concentration and capacity analysis</p>
+          </div>
+        </div>
+
+        <div class="kpi-grid kpi-grid-4">
+          <div class="kpi-card">
+            <div class="kpi-icon">🏆</div>
+            <div class="kpi-value">0.34</div>
+            <div class="kpi-label">Gini Coefficient</div>
+            <div class="kpi-sub">moderate inequality in usage</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">📍</div>
+            <div class="kpi-value">35%</div>
+            <div class="kpi-label">Sessions at Top 10 Stations</div>
+            <div class="kpi-sub">vs 19% if perfectly even</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">📊</div>
+            <div class="kpi-value">28.1</div>
+            <div class="kpi-label">Peak Vehicles Plugged In</div>
+            <div class="kpi-sub">around 13:00 on weekdays</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🔢</div>
+            <div class="kpi-value">36 / 55</div>
+            <div class="kpi-label">Active Stations (recent)</div>
+            <div class="kpi-sub">top 7 carry 63% of sessions</div>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-card chart-medium">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Occupancy Profile – Weekday</h3>
+                <p class="chart-subtitle">Peak-to-average ratio 2.28 · max 94% occupancy</p>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="occupancyChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card chart-medium">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Station Load Distribution</h3>
+                <p class="chart-subtitle">Lorenz-style: cumulative sessions vs stations ranked by usage</p>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="lorenzChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Station Capacity Planning -->
+        <div class="capacity-grid">
+          <div class="capacity-card">
+            <div class="capacity-header">Weekday Peak Planning</div>
+            <div class="capacity-bars">
+              <div class="cap-bar-row">
+                <span class="cap-label">Installed stations</span>
+                <div class="cap-bar-wrap">
+                  <div class="cap-bar" style="width:100%; background:#E5E7EB">
+                    <div class="cap-fill" style="width:100%; background:#CBD5E1"></div>
+                  </div>
+                </div>
+                <span class="cap-num">55</span>
+              </div>
+              <div class="cap-bar-row">
+                <span class="cap-label">Active (recent)</span>
+                <div class="cap-bar-wrap">
+                  <div class="cap-bar" style="width:100%; background:#E5E7EB">
+                    <div class="cap-fill" style="width:65.5%; background:#60A5FA"></div>
+                  </div>
+                </div>
+                <span class="cap-num">36</span>
+              </div>
+              <div class="cap-bar-row">
+                <span class="cap-label">Needed (90% days)</span>
+                <div class="cap-bar-wrap">
+                  <div class="cap-bar" style="width:100%; background:#E5E7EB">
+                    <div class="cap-fill" style="width:47.3%; background:#2563EB"></div>
+                  </div>
+                </div>
+                <span class="cap-num">26</span>
+              </div>
+              <div class="cap-bar-row">
+                <span class="cap-label">If pre-COVID returns (95th pct)</span>
+                <div class="cap-bar-wrap">
+                  <div class="cap-bar" style="width:100%; background:#E5E7EB">
+                    <div class="cap-fill" style="width:67.3%; background:#F59E0B"></div>
+                  </div>
+                </div>
+                <span class="cap-num">37</span>
+              </div>
+            </div>
+          </div>
+          <div class="capacity-card">
+            <div class="capacity-header">Maintenance & Rotation Guidance</div>
+            <div class="maintenance-list">
+              <div class="maint-item maint-good">
+                <span class="maint-icon">✅</span>
+                <span>Schedule maintenance on <strong>weekends</strong>, campus closure days, and before 08:00 / after 21:00</span>
+              </div>
+              <div class="maint-item maint-warn">
+                <span class="maint-icon">🔄</span>
+                <span>Rotate assignments from the <strong>top-7 busiest chargers</strong> to spread wear and keep standby units service-ready</span>
+              </div>
+              <div class="maint-item maint-info">
+                <span class="maint-icon">📍</span>
+                <span>Reserve <strong>2–3 dedicated short-stay bays</strong> for quick top-ups, especially evening slots</span>
+              </div>
+              <div class="maint-item maint-warn">
+                <span class="maint-icon">⚠️</span>
+                <span>In R4, top 25% of chargers took <strong>85% of sessions</strong> vs 38% in R2 — uneven load risks hardware failure</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer">
+    <div class="footer-inner">
+      <span>EV Charging Demand Analytics · ACN Caltech Dataset · Business Analytics Capstone</span>
+      <span>Data: Apr 2018 – Sep 2021 · 31,387 sessions · 55 stations · 1 site</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
